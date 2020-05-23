@@ -48,13 +48,13 @@ object BarChartWithTableViewDemo extends JFXApp {
     val value = new ObjectProperty[Int](this, "value", value_)
   }
 
-  val data1 = ObservableBuffer[Position](
+  val data1: ObservableBuffer[Position] = ObservableBuffer[Position](
     new Position("A", 26),
     new Position("B", 35),
     new Position("C", 18)
   )
 
-  val data2 = ObservableBuffer[Position](
+  val data2: ObservableBuffer[Position] = ObservableBuffer[Position](
     new Position("P", 61),
     new Position("Q", 56),
     new Position("R", 78)

@@ -43,21 +43,21 @@ object TreeViewCellFactoryDemo extends JFXApp {
 
   case class Person(firstName: String, lastName: String, children: List[Person] = Nil)
 
-  val children1 = List(
+  val children1: List[Person] = List(
     Person("Bungalow", "Bill"),
     Person("Dennis", "O’Dell"),
     Person("Peggy", "Sue"),
     Person("Molly", "Jones")
   )
 
-  val children2 = List(
+  val children2: List[Person] = List(
     Person("Maxwell", "Edison"),
     Person("Desmond", "Jones"),
     Person("Loretta", "Martin")
   )
 
 
-  val parents = ObservableBuffer[Person](
+  val parents: ObservableBuffer[Person] = ObservableBuffer[Person](
     Person("Eleanor", "Rigby", children1),
     Person("Rocky", "Raccoon", children2)
   )

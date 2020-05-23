@@ -38,10 +38,10 @@ import scalafx.scene.control.ListView
 object ListViewWithSelectionDemo extends JFXApp {
 
   case class Person(firstName: String, lastName: String) {
-    override def toString = firstName + " " + lastName
+    override def toString: String = firstName + " " + lastName
   }
 
-  val characters = ObservableBuffer[Person](
+  val characters: ObservableBuffer[Person] = ObservableBuffer[Person](
     Person("Bungalow ", "Bill"),
     Person("Dennis", "O’Dell"),
     Person("Eleanor", "Rigby"),

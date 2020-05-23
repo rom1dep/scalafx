@@ -37,6 +37,7 @@ import scala.collection.JavaConverters._
 import scala.collection.mutable.ListBuffer
 import scala.collection.{Map, Seq, mutable}
 import scala.language.implicitConversions
+import scala.collection.immutable
 
 object JFXApp {
 
@@ -174,9 +175,9 @@ object JFXApp {
     * Empty parameters for an application
     */
   private[application] object EmptyParameters extends Parameters {
-    def raw = Seq.empty[String]
-    def named = Map.empty[String, String]
-    def unnamed = Seq.empty[String]
+    def raw: Seq[String] = Nil
+    def named: immutable.Map[String,String] = Map.empty[String, String]
+    def unnamed: Seq[String] = Nil
 
     lazy val delegate: Application.Parameters = new jfxa.Application.Parameters {
       def getRaw: java.util.List[String] = raw.asJava

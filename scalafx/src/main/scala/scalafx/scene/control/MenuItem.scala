@@ -37,6 +37,7 @@ import scalafx.scene.Node
 import scalafx.scene.input.KeyCombination
 
 import scala.language.implicitConversions
+import javafx.beans.property
 
 object MenuItem {
   implicit def sfxMenuItem2jfx(m: MenuItem): jfxsc.MenuItem = if (m != null) m.delegate else null
@@ -174,11 +175,11 @@ class MenuItem(override val delegate: jfxsc.MenuItem = new jfxsc.MenuItem)
    * The event handler is also invoked when onShowing event handler is called.
    * @since 2.2
    */
-  def onMenuValidation = delegate.onMenuValidationProperty()
+  def onMenuValidation: property.ObjectProperty[jfxe.EventHandler[jfxe.Event]] = delegate.onMenuValidationProperty()
 
   def onMenuValidation_=(eventHandler: jfxe.EventHandler[jfxe.Event]): Unit = {
     onMenuValidation() = eventHandler
   }
 
-  override protected def eventHandlerDelegate = delegate.asInstanceOf[EventHandled]
+  override protected def eventHandlerDelegate: EventHandled = delegate.asInstanceOf[EventHandled]
 }

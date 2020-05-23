@@ -80,49 +80,49 @@ object Constants {
   //
   // stones
   //
-  val STONE_WIDTH = SCALE * 30
-  val STONE_STROKE_WIDTH = SCALE * 1
-  val STONE_GAP = SCALE * 6
-  val STONE_HEIGHT = SCALE * 10
+  val STONE_WIDTH: Int = SCALE * 30
+  val STONE_STROKE_WIDTH: Int = SCALE * 1
+  val STONE_GAP: Int = SCALE * 6
+  val STONE_HEIGHT: Int = SCALE * 10
   val STONE_FILL = Color.White
   val STONE_STROKE = Color.Blue
   //
   // frogs
   //
-  val FROG_RADIUS = SCALE * 6
+  val FROG_RADIUS: Int = SCALE * 6
   val GREEN_FROG_FILL = Color.DarkGreen
   val RED_FROG_FILL = Color.DarkRed
   //
   // canvas
   //
-  val CANVAS_HEIGHT = SCALE * 100
+  val CANVAS_HEIGHT: Int = SCALE * 100
   val CANVAS_FILL = Color.LightGray
   //
   // relative
   //
   // model
   //
-  val NUMBER_OF_STONES = NUMBER_OF_FROGS * 2 + 1
-  val STONE_NUMBER_LIST = (0 to NUMBER_OF_STONES - 1).toList
+  val NUMBER_OF_STONES: Int = NUMBER_OF_FROGS * 2 + 1
+  val STONE_NUMBER_LIST: List[Int] = (0 to NUMBER_OF_STONES - 1).toList
   //
   // view
   //
   // stones
   //
-  val STONE_TOTAL_WIDTH = STONE_WIDTH + 2 * STONE_STROKE_WIDTH
-  val STONE_TOTAL_HEIGHT = STONE_HEIGHT + 2 * STONE_STROKE_WIDTH
-  val FIRST_STONE_X = STONE_TOTAL_WIDTH / 2
-  val STONE_Y = CANVAS_HEIGHT - STONE_TOTAL_HEIGHT
-  val STONE_STEP = STONE_TOTAL_WIDTH + STONE_GAP
+  val STONE_TOTAL_WIDTH: Int = STONE_WIDTH + 2 * STONE_STROKE_WIDTH
+  val STONE_TOTAL_HEIGHT: Int = STONE_HEIGHT + 2 * STONE_STROKE_WIDTH
+  val FIRST_STONE_X: Int = STONE_TOTAL_WIDTH / 2
+  val STONE_Y: Int = CANVAS_HEIGHT - STONE_TOTAL_HEIGHT
+  val STONE_STEP: Int = STONE_TOTAL_WIDTH + STONE_GAP
   //
   // frogs
   //
   val FIRST_FROG_CENTER_X = STONE_TOTAL_WIDTH
-  val FROG_CENTER_Y = STONE_Y - FROG_RADIUS
+  val FROG_CENTER_Y: Int = STONE_Y - FROG_RADIUS
   //
   // canvas
   //
-  val CANVAS_WIDTH = (NUMBER_OF_STONES + 1) * STONE_TOTAL_WIDTH + (NUMBER_OF_STONES - 1) * STONE_GAP
+  val CANVAS_WIDTH: Int = (NUMBER_OF_STONES + 1) * STONE_TOTAL_WIDTH + (NUMBER_OF_STONES - 1) * STONE_GAP
   //
 }
 
@@ -231,23 +231,23 @@ class Model(var optionalFrogMap: Map[Int, Option[Frog]]) {
     }
   }
 
-  val position = (frog: Frog) => positionSingleton(frog).head
+  val position: Frog => Int = (frog: Frog) => positionSingleton(frog).head
 
-  val canJumpOneRight = canMoveOneRightAt compose position
+  val canJumpOneRight: Frog => Boolean = canMoveOneRightAt compose position
 
-  val canJumpTwoRight = canMoveTwoRightAt compose position
+  val canJumpTwoRight: Frog => Boolean = canMoveTwoRightAt compose position
 
-  val canJumpOneLeft = canMoveOneLeftAt compose position
+  val canJumpOneLeft: Frog => Boolean = canMoveOneLeftAt compose position
 
-  val canJumpTwoLeft = canMoveTwoLeftAt compose position
+  val canJumpTwoLeft: Frog => Boolean = canMoveTwoLeftAt compose position
 
-  val jumpOneRight = update(_ + 1)
+  val jumpOneRight: Frog => Unit = update(_ + 1)
 
-  val jumpTwoRight = update(_ + 2)
+  val jumpTwoRight: Frog => Unit = update(_ + 2)
 
-  val jumpOneLeft = update(_ - 1)
+  val jumpOneLeft: Frog => Unit = update(_ - 1)
 
-  val jumpTwoLeft = update(_ - 2)
+  val jumpTwoLeft: Frog => Unit = update(_ - 2)
 
 }
 
@@ -304,12 +304,12 @@ object theViewValues {
   val canvasShape =
     theCanvasShape
 
-  val stoneShapes =
+  val stoneShapes: List[StoneShape] =
     for {
       i <- STONE_NUMBER_LIST
     } yield StoneShape(i)
 
-  val frogShapes =
+  val frogShapes: List[FrogShape] =
     for {
       i <- STONE_NUMBER_LIST
       frog <- theModelValues.optionalFrogMap(i)
@@ -348,13 +348,13 @@ class View(position: FrogShape => Int, val frogShapes: List[FrogShape]) {
     )).play()
   }
 
-  val jumpOneRight = update(1, _ + _)
+  val jumpOneRight: FrogShape => Unit = update(1, _ + _)
 
-  val jumpTwoRight = update(2, _ + _)
+  val jumpTwoRight: FrogShape => Unit = update(2, _ + _)
 
-  val jumpOneLeft = update(1, _ - _)
+  val jumpOneLeft: FrogShape => Unit = update(1, _ - _)
 
-  val jumpTwoLeft = update(2, _ - _)
+  val jumpTwoLeft: FrogShape => Unit = update(2, _ - _)
 }
 
 /////////////

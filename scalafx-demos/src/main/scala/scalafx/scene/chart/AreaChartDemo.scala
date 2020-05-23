@@ -50,7 +50,7 @@ object AreaChartDemo extends JFXApp {
   }
 
   /** Create XYChart.Series from a sequence of number pairs. */
-  def xySeries(name: String, data: Seq[(Int, Int)]) =
+  def xySeries(name: String, data: Seq[(Int, Int)]): javafx.scene.chart.XYChart.Series[Number,Number] =
     XYChart.Series[Number, Number](
       name,
       ObservableBuffer(data.map {case (x, y) => XYChart.Data[Number, Number](x, y)})

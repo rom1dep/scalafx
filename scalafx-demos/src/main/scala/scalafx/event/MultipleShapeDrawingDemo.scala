@@ -53,7 +53,7 @@ object MultipleShapeDrawingDemo extends JFXApp {
 
   /** Handles drawing of rectangles */
   object RectangleInteractor extends ShapeDrawInteractor {
-    val rectangle = new Rectangle {
+    val rectangle: Rectangle = new Rectangle {
       fill = Color.web("RED", 0.5)
     }
     /** Update the shape using current `start` and `end` points. */
@@ -67,7 +67,7 @@ object MultipleShapeDrawingDemo extends JFXApp {
 
   /** Handles drawing of ellipses */
   object EllipseInteractor extends ShapeDrawInteractor {
-    val ellipse = new Ellipse {
+    val ellipse: Ellipse = new Ellipse {
       fill = Color.web("GREEN", 0.5)
     }
     /** Update the shape using current `start` and `end` points. */
@@ -81,7 +81,7 @@ object MultipleShapeDrawingDemo extends JFXApp {
 
   /** Handles drawing of lines */
   object LineInteractor extends ShapeDrawInteractor {
-    val line = new Line {
+    val line: Line = new Line {
       stroke = Color.web("BLUE", 0.5)
       strokeWidth = 3
     }
@@ -94,7 +94,7 @@ object MultipleShapeDrawingDemo extends JFXApp {
     }
   }
 
-  val drawingPane = new Pane {
+  val drawingPane: Pane = new Pane {
     // For simplicity of the demo, just add all shapes to canvas, single instance of each type.
     // Initially, they have zero area so they will not be visible.
     children ++= Seq(RectangleInteractor.rectangle, EllipseInteractor.ellipse, LineInteractor.line)

@@ -31,7 +31,7 @@ import scalafx.scene.paint.Color._
 
 object WebColor {
 
-  val colors = List(
+  val colors: List[WebColor] = List(
     WebColor("ALICEBLUE", AliceBlue),
     WebColor("ANTIQUEWHITE", AntiqueWhite),
     WebColor("AQUA", Aqua),
@@ -196,6 +196,6 @@ sealed case class WebColor(name: String, color: Color) {
   /**
    * Verifies if a determined color is equivalent to color represented by this WebColor.
    */
-  def sameColor(c: Color) =
+  def sameColor(c: Color): Boolean =
     ((c.red == color.red) && (c.green == color.green) && (c.blue == color.blue))
 }

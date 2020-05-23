@@ -40,7 +40,7 @@ private[input] trait JMapWrapperLike[A, B, +Repr <: mutable.MapLike[A, B, Repr]
 
   override def size = underlying.size
 
-  def get(k: A) = {
+  def get(k: A): Option[B] = {
     val v = underlying get k
     if (v != null)
       Some(v)
@@ -74,7 +74,7 @@ private[input] trait JMapWrapperLike[A, B, +Repr <: mutable.MapLike[A, B, Repr]
     def next() = { val e = ui.next(); (e.getKey, e.getValue) }
   }
 
-  override def clear() = underlying.clear()
+  override def clear(): Unit = underlying.clear()
 
   override def empty: Repr = null.asInstanceOf[Repr]
 }

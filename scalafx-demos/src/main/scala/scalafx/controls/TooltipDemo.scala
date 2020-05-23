@@ -43,13 +43,13 @@ object TooltipDemo extends JFXApp {
 
   val myTooltip = new Tooltip
 
-  val btnTooltip = new Button {
+  val btnTooltip: Button = new Button {
     text = "Mouse over me to see Tooltip"
     tooltip = myTooltip
     alignmentInParent = Pos.Center
   }
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -58,7 +58,7 @@ object TooltipDemo extends JFXApp {
     children = List(new TooltipControls(myTooltip), new PopupControlControls(myTooltip))
   }
 
-  val mainPane = new VBox {
+  val mainPane: VBox = new VBox {
     children = List(btnTooltip, controlsPane)
   }
 
@@ -78,37 +78,37 @@ object TooltipDemo extends JFXApp {
 
 class TooltipControls(target: Tooltip) extends PropertiesNodes[Tooltip](target, "Tooltip Properties") {
 
-  val lblActivated = new Label {
+  val lblActivated: Label = new Label {
     text <== when(target.activated) choose "Activated" otherwise "Deactivated"
   }
 
-  val originalContentDisplay = target.contentDisplay()
-  val chbContentDisplay      = new ChoiceBox[jfxsc.ContentDisplay] {
+  val originalContentDisplay: jfxsc.ContentDisplay = target.contentDisplay()
+  val chbContentDisplay: ChoiceBox[jfxsc.ContentDisplay]      = new ChoiceBox[jfxsc.ContentDisplay] {
     items = ObservableBuffer(ContentDisplay.Bottom, ContentDisplay.Center, ContentDisplay.GraphicOnly, ContentDisplay.Left, ContentDisplay.Right,
       ContentDisplay.TextOnly, ContentDisplay.Top)
     value <==> target.contentDisplay
   }
 
-  val originalText = target.text()
-  val txfText = new TextField {
+  val originalText: String = target.text()
+  val txfText: TextField = new TextField {
     text <==> target.text
   }
 
-  val originalTextAlignment = target.textAlignment()
-  val chbTextAlignment = new ChoiceBox[jfxst.TextAlignment] {
+  val originalTextAlignment: jfxst.TextAlignment = target.textAlignment()
+  val chbTextAlignment: ChoiceBox[jfxst.TextAlignment] = new ChoiceBox[jfxst.TextAlignment] {
     items = ObservableBuffer(TextAlignment.Center, TextAlignment.Justify, TextAlignment.Left, TextAlignment.Right)
     value <==> target.textAlignment
   }
 
-  val originalTextOverrun = target.textOverrun()
-  val chbTextOverrun = new ChoiceBox[jfxsc.OverrunStyle] {
+  val originalTextOverrun: jfxsc.OverrunStyle = target.textOverrun()
+  val chbTextOverrun: ChoiceBox[jfxsc.OverrunStyle] = new ChoiceBox[jfxsc.OverrunStyle] {
     items = ObservableBuffer(OverrunStyle.CenterEllipsis, OverrunStyle.CenterWordEllipsis, OverrunStyle.Clip, OverrunStyle.Ellipsis,
       OverrunStyle.LeadingEllipsis, OverrunStyle.LeadingWordEllipsis, OverrunStyle.WordEllipsis)
     value <==> target.textOverrun
   }
 
-  val originalWrap = target.wrapText()
-  val chbWrap = new CheckBox {
+  val originalWrap: Boolean = target.wrapText()
+  val chbWrap: CheckBox = new CheckBox {
     selected <==> target.wrapText
   }
 

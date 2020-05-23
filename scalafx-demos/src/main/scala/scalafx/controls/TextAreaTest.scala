@@ -50,13 +50,13 @@ object TextAreaTest extends JFXApp {
     }
   }
 
-  lazy val textArea = new TextArea {
+  lazy val textArea: TextArea = new TextArea {
     prefColumnCount = 20
     //    prefHeight <== scene.height
     //    hgrow = Priority.Always
   }
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -65,7 +65,7 @@ object TextAreaTest extends JFXApp {
     children = List(new TextAreaControls(textArea), new TextInputControlControls(textArea), new ControlControls(textArea))
   }
 
-  lazy val mainPane = new BorderPane {
+  lazy val mainPane: BorderPane = new BorderPane {
     top = textArea
     center = controlsPane
     //    vgrow = Priority.Always
@@ -77,7 +77,7 @@ object TextAreaTest extends JFXApp {
 class TextAreaControls(target: TextArea) extends PropertiesNodes[TextArea](target, "TextArea Properties") {
   // TODO: ChoiceBoxes are not really working. In JavaFX 2.1, bind their respective values with TextArea properties.
 
-  val chbPrefColumnCount = new ChoiceBox[Int] {
+  val chbPrefColumnCount: ChoiceBox[Int] = new ChoiceBox[Int] {
     items = ObservableBuffer[Int](0, 5, 10, 15, 20, 25, 30)
   }
   // In JAvaFX 2.1, bind TextArea.prefColumnCount with value
@@ -87,7 +87,7 @@ class TextAreaControls(target: TextArea) extends PropertiesNodes[TextArea](targe
     }
   })
 
-  val chbPrefRowCount = new ChoiceBox[Int] {
+  val chbPrefRowCount: ChoiceBox[Int] = new ChoiceBox[Int] {
     items = ObservableBuffer[Int](0, 5, 10, 15, 20, 25, 30)
   }
   // In JAvaFX 2.1, bind TextArea.prefRowCount with value
@@ -97,7 +97,7 @@ class TextAreaControls(target: TextArea) extends PropertiesNodes[TextArea](targe
     }
   })
 
-  val chbScrollLeft = new ChoiceBox[Double] {
+  val chbScrollLeft: ChoiceBox[Double] = new ChoiceBox[Double] {
     items = ObservableBuffer[Double](-10, -5, 0, 5, 10, 15, 20)
   }
   //  chbScrollLeft.delegate.selectionModelProperty.set
@@ -108,7 +108,7 @@ class TextAreaControls(target: TextArea) extends PropertiesNodes[TextArea](targe
     }
   })
 
-  val chbScrollTop = new ChoiceBox[Double] {
+  val chbScrollTop: ChoiceBox[Double] = new ChoiceBox[Double] {
     items = ObservableBuffer[Double](-10, -5, 0, 5, 10, 15, 20)
   }
   // In JAvaFX 2.1, bind TextArea.prefRowCount with value
@@ -118,7 +118,7 @@ class TextAreaControls(target: TextArea) extends PropertiesNodes[TextArea](targe
     }
   })
 
-  val chbWrap = new CheckBox {
+  val chbWrap: CheckBox = new CheckBox {
     selected <==> target.wrapText
   }
 

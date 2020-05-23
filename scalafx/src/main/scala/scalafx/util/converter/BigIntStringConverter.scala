@@ -40,6 +40,6 @@ class BigIntStringConverter(delegate: jfxuc.BigIntegerStringConverter = new jfxu
 
   override def fromString(s: String) = new BigInt(delegate.fromString(s))
 
-  override def toString(b: BigInt) = delegate.toString(b.bigInteger)
+  override def toString(b: BigInt): String = delegate.toString(b.bigInteger)
 
 }

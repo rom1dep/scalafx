@@ -39,7 +39,7 @@ import scalafx.scene.shape.Circle
 /** Illustrates use of TableColumn CellFactory to do custom rendering of a TableCell. */
 object TableWithCustomCellDemo extends JFXApp {
 
-  val characters = ObservableBuffer[Person](
+  val characters: ObservableBuffer[Person] = ObservableBuffer[Person](
     new Person("Peggy", "Sue", "555-6798", Color.Violet),
     new Person("Rocky", "Raccoon", "555-6798", Color.GreenYellow),
     new Person("Bungalow ", "Bill", "555-9275", Color.DarkSalmon)

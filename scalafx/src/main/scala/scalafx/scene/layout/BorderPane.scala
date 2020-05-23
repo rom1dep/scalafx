@@ -52,7 +52,7 @@ object BorderPane {
   /**
    * Returns the child's alignment constraint if set.
    */
-  def getAlignment(child: Node) = jfxsl.BorderPane.getAlignment(child)
+  def getAlignment(child: Node): jfxg.Pos = jfxsl.BorderPane.getAlignment(child)
 
   /**
    * Returns the child's margin constraint if set.

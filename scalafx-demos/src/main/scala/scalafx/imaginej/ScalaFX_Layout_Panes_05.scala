@@ -64,12 +64,12 @@ import scalafx.scene.text.{Font, FontWeight, Text}
  */
 
 object ScalaFX_Layout_Panes_05 extends JFXApp {
-  val currentButton = new Button {
+  val currentButton: Button = new Button {
     text = "Current"
     prefWidth = 100
     prefHeight = 20
   }
-  val projectedButton = new Button {
+  val projectedButton: Button = new Button {
     text = "Projected"
     prefWidth = 100
     prefHeight = 20
@@ -80,7 +80,7 @@ object ScalaFX_Layout_Panes_05 extends JFXApp {
     font = Font.font("Amble Cn", FontWeight.Bold, 18)
     text = " ? "
   }
-  val questionRectangle = new Rectangle {
+  val questionRectangle: Rectangle = new Rectangle {
     fill = Color.LightBlue
     stroke = Color.White
     arcHeight = 3.5
@@ -88,11 +88,11 @@ object ScalaFX_Layout_Panes_05 extends JFXApp {
     width = questionText.boundsInLocal.getValue.getWidth + 10
     height = questionText.boundsInLocal.getValue.getHeight + 10
   }
-  val stackPane = new StackPane {
+  val stackPane: StackPane = new StackPane {
     alignment = Pos.Center
     children = List(questionRectangle, questionText)
   }
-  val hBox = new HBox {
+  val hBox: HBox = new HBox {
     spacing = 10
     padding = Insets(15, 12, 15, 12)
     style = "-fx-background-color: #336699"
@@ -105,7 +105,7 @@ object ScalaFX_Layout_Panes_05 extends JFXApp {
       stackPane
     )
   }
-  val data = List(
+  val data: List[Text] = List(
     new Text {
       font = Font.font("Amble CN", FontWeight.Bold, 14)
       text = "Data"
@@ -123,43 +123,43 @@ object ScalaFX_Layout_Panes_05 extends JFXApp {
       text = "  Costs"
     }
   )
-  val vBox = new VBox {
+  val vBox: VBox = new VBox {
     spacing = 10
     padding = Insets(10, 10, 10, 10)
     children = data
   }
 
-  val salesText = new Text {
+  val salesText: Text = new Text {
     font = Font.font("Tahoma", FontWeight.Bold, 20)
     text = "Sales:"
   }
 
-  val yearText = new Text {
+  val yearText: Text = new Text {
     font = Font.font("Tahoma", FontWeight.Bold, 20)
     text = "Current Year"
   }
 
-  val iconImageView = new ImageView {
+  val iconImageView: ImageView = new ImageView {
     image = new Image(this, "images/icon.png")
   }
 
-  val oldAndNewText = new Text {
+  val oldAndNewText: Text = new Text {
     text = "Old and New"
   }
 
-  val oldText = new Text {
+  val oldText: Text = new Text {
     text = "Old\n20%"
   }
 
-  val newText = new Text {
+  val newText: Text = new Text {
     text = "New\n80%"
   }
 
-  val newImageView = new ImageView {
+  val newImageView: ImageView = new ImageView {
     image = new Image(this, "images/new.png")
   }
 
-  val gridPane = new GridPane {
+  val gridPane: GridPane = new GridPane {
     hgap = 10
     vgap = 10
     padding = Insets(0, 0, 0, 10)

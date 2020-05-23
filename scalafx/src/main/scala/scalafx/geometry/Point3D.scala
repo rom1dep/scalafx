@@ -62,11 +62,11 @@ class Point3D(override val delegate: jfxg.Point3D) extends SFXDelegate[jfxg.Poin
   /**
    * Computes the distance between this point and point (x1, y1, z1).
    */
-  def distance(x1: Double, y1: Double, z1: Double) = delegate.distance(x1, y1, z1)
+  def distance(x1: Double, y1: Double, z1: Double): Double = delegate.distance(x1, y1, z1)
 
   /**
    * Computes the distance between this point and point p.
    */
-  def distance(p: Point3D) = delegate.distance(p)
+  def distance(p: Point3D): Double = delegate.distance(p)
 
 }

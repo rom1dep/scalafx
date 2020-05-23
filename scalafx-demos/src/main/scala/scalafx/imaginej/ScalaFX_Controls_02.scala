@@ -65,20 +65,20 @@ import scalafx.scene.text.Font
  */
 
 object ScalaFX_Controls_02 extends JFXApp {
-  val label = new Label {
+  val label: Label = new Label {
     font = Font.font("Times New Roman", 22)
     textFill = Color.web("#464646")
   }
 
-  val okImageView = new ImageView {
+  val okImageView: ImageView = new ImageView {
     image = new Image(this, "images/ok.png")
   }
 
-  val koImageView = new ImageView {
+  val koImageView: ImageView = new ImageView {
     image = new Image(this, "images/ko.png")
   }
 
-  val okButton1 = new Button {
+  val okButton1: Button = new Button {
     graphic = okImageView
     text = "Accept"
     style = "-fx-font: 22 arial; -fx-base: #b6e7c9;"
@@ -88,7 +88,7 @@ object ScalaFX_Controls_02 extends JFXApp {
     }
   }
 
-  val okButton2 = new Button {
+  val okButton2: Button = new Button {
     text = "Accept"
     onAction = {
       (_: ActionEvent) =>
@@ -96,7 +96,7 @@ object ScalaFX_Controls_02 extends JFXApp {
     }
   }
 
-  val koButton1 = new Button {
+  val koButton1: Button = new Button {
     text = "Decline"
     onAction = {
       (_: ActionEvent) =>
@@ -114,7 +114,7 @@ object ScalaFX_Controls_02 extends JFXApp {
       koButton1.effect = null
   }
 
-  val hBox1 = new HBox {
+  val hBox1: HBox = new HBox {
     spacing = 10
     alignment = Pos.BottomCenter
     children = List(
@@ -124,7 +124,7 @@ object ScalaFX_Controls_02 extends JFXApp {
     )
   }
 
-  val okButton3 = new Button {
+  val okButton3: Button = new Button {
     graphic = okImageView
     onAction = {
       (_: ActionEvent) =>
@@ -133,7 +133,7 @@ object ScalaFX_Controls_02 extends JFXApp {
   }
 
 
-  val koButton2 = new Button {
+  val koButton2: Button = new Button {
     graphic = koImageView
     onAction = {
       (_: ActionEvent) =>
@@ -141,7 +141,7 @@ object ScalaFX_Controls_02 extends JFXApp {
     }
   }
 
-  val hBox2 = new HBox {
+  val hBox2: HBox = new HBox {
     spacing = 25
     children = List(
       okButton3,
@@ -149,7 +149,7 @@ object ScalaFX_Controls_02 extends JFXApp {
     )
   }
 
-  val vBox = new VBox {
+  val vBox: VBox = new VBox {
     layoutX = 20
     layoutY = 20
     spacing = 10

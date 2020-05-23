@@ -286,6 +286,6 @@ trait EventHandlerDelegate {
   /**
    * Construct an event dispatch chain for this target.
    */
-  def buildEventDispatchChain(chain: jfxe.EventDispatchChain) = eventHandlerDelegate.buildEventDispatchChain(chain)
+  def buildEventDispatchChain(chain: jfxe.EventDispatchChain): jfxe.EventDispatchChain = eventHandlerDelegate.buildEventDispatchChain(chain)
 
 }

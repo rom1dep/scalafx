@@ -39,7 +39,7 @@ object TreeViewCellFactoryDemo extends JFXApp {
 
   case class Person(firstName: String, lastName: String)
 
-  val characters = ObservableBuffer[Person](
+  val characters: ObservableBuffer[Person] = ObservableBuffer[Person](
     Person("Bungalow ", "Bill"),
     Person("Dennis", "O’Dell"),
     Person("Eleanor", "Rigby"),

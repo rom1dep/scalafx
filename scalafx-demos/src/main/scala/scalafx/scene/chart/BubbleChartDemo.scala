@@ -51,7 +51,7 @@ object BubbleChartDemo extends JFXApp {
   }
 
   /** Create XYChart.Series from a sequence of number triplets (x, y, radius). */
-  def xyrSeries(name: String, data: Seq[(Int, Int, Int)]) =
+  def xyrSeries(name: String, data: Seq[(Int, Int, Int)]): javafx.scene.chart.XYChart.Series[Number,Number] =
     XYChart.Series[Number, Number](
       name,
       ObservableBuffer(data.map {case (x, y, r) => XYChart.Data[Number, Number](x, y, r)})

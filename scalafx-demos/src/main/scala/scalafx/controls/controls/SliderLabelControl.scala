@@ -54,13 +54,13 @@ class SliderLabelControl(property: DoubleProperty) extends FlowPane {
 
   val originalPattern = "%02.1f"
 
-  val slider = new Slider {
+  val slider: Slider = new Slider {
     value <==> property
     hgrow = Priority.Always
     labelFormatter = new DoubleStringConverter()
   }
 
-  val lblValue = new Label {
+  val lblValue: Label = new Label {
     text <== slider.value.asString(originalPattern)
     hgrow = Priority.Sometimes
   }
@@ -116,7 +116,7 @@ object SliderLabelControlDemo extends JFXApp {
   val value = new IntegerProperty(1.asInstanceOf[java.lang.Object], "value")
   //new DoubleProperty(x, "Value")
 
-  val lblValue = new Label {
+  val lblValue: Label = new Label {
     text <== value.asString("%2d")
   }
 

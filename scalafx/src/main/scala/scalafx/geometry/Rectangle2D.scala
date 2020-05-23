@@ -48,22 +48,22 @@ class Rectangle2D(override val delegate: jfxg.Rectangle2D) extends SFXDelegate[j
   /**
    * Tests if the specified (x, y) coordinates are inside the boundary of Rectangle2D.
    */
-  def contains(x: Double, y: Double) = delegate.contains(x, y)
+  def contains(x: Double, y: Double): Boolean = delegate.contains(x, y)
 
   /**
    * Tests if the interior of this Rectangle2D entirely contains the specified rectangular area.
    */
-  def contains(x: Double, y: Double, w: Double, h: Double) = delegate.contains(x, y, w, h)
+  def contains(x: Double, y: Double, w: Double, h: Double): Boolean = delegate.contains(x, y, w, h)
 
   /**
    * Tests if the specified point is inside the boundary of Rectangle2D.
    */
-  def contains(p: Point2D) = delegate.contains(p)
+  def contains(p: Point2D): Boolean = delegate.contains(p)
 
   /**
    * Tests if the interior of this Rectangle2D entirely contains the specified Rectangle2D, r.
    */
-  def contains(r: Rectangle2D) = delegate.contains(r)
+  def contains(r: Rectangle2D): Boolean = delegate.contains(r)
 
   /**
    * The height of this Rectangle2D.
@@ -73,12 +73,12 @@ class Rectangle2D(override val delegate: jfxg.Rectangle2D) extends SFXDelegate[j
   /**
    * Tests if the interior of this Rectangle2D intersects the interior of a specified rectangular area.
    */
-  def intersects(x: Double, y: Double, w: Double, h: Double) = delegate.intersects(x, y, w, h)
+  def intersects(x: Double, y: Double, w: Double, h: Double): Boolean = delegate.intersects(x, y, w, h)
 
   /**
    * Tests if the interior of this Rectangle2D intersects the interior of a specified Rectangle2D, r.
    */
-  def intersects(r: Rectangle2D) = delegate.intersects(r)
+  def intersects(r: Rectangle2D): Boolean = delegate.intersects(r)
 
   /**
    * The x coordinate of the lower-right corner of this Rectangle2D.

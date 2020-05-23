@@ -346,7 +346,7 @@ class GraphicsContext(override val delegate: jfxsc.GraphicsContext)
   /**
    * Returns true if the the given x,y point is inside the path.
    */
-  def pointInPath(x: Double, y: Double) = delegate.isPointInPath(x, y)
+  def pointInPath(x: Double, y: Double): Boolean = delegate.isPointInPath(x, y)
 
   /**
    * Adds segments to the current path to make a quadratic curve.

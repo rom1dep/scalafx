@@ -29,7 +29,7 @@ package scalafx.colorselector
 import scalafx.scene.paint.Color
 
 object Formatter {
-  val formatters = List(HexFormatter, RgbFormatter, PercentFormatter, HsbFormatter)
+  val formatters: List[Formatter] = List(HexFormatter, RgbFormatter, PercentFormatter, HsbFormatter)
 
 }
 

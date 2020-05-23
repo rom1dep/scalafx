@@ -37,14 +37,15 @@ import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, FlowPane, Priority, VBox}
 import scalafx.scene.paint.Color
 import scalafx.util.converter.DoubleStringConverter
+import javafx.geometry
 
 object SliderTest extends JFXApp {
 
-  val slider = new Slider {
+  val slider: Slider = new Slider {
     alignmentInParent = Pos.Center
   }
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -52,7 +53,7 @@ object SliderTest extends JFXApp {
     children = List(new SliderControls(slider), new ControlControls(slider))
   }
 
-  val mainPane = new BorderPane {
+  val mainPane: BorderPane = new BorderPane {
     top = new FlowPane {
       children = List(slider)
     }
@@ -96,7 +97,7 @@ class SliderControls(target: Slider) extends PropertiesNodes[Slider](target, "Sl
   txfValue.onAction = handle {super.fillDoublePropertyFromText(target.value, txfValue, false)}
 
   val originalBlockIncrement = target.blockIncrement.get
-  val txfBlockIncrement = new TextField {
+  val txfBlockIncrement: TextField = new TextField {
     text = originalBlockIncrement.get.toString
   }
   target.blockIncrement.onChange(txfBlockIncrement.text = target.blockIncrement.get.toString)
@@ -110,61 +111,61 @@ class SliderControls(target: Slider) extends PropertiesNodes[Slider](target, "Sl
       target.labelFormatter = new DoubleStringConverter
     })
 
-  val originalMajorTickUnit = target.majorTickUnit.get()
-  val txfMajorTickUnit = new TextField {
+  val originalMajorTickUnit: Double = target.majorTickUnit.get()
+  val txfMajorTickUnit: TextField = new TextField {
     text = originalMajorTickUnit.toString
   }
   target.majorTickUnit.onChange(txfMajorTickUnit.text = target.majorTickUnit.get.toString)
   txfMajorTickUnit.onAction = handle {fillDoublePropertyFromText(target.majorTickUnit, txfMajorTickUnit, false)}
 
-  val originalMax = target.max.get()
-  val txfMax = new TextField {
+  val originalMax: Double = target.max.get()
+  val txfMax: TextField = new TextField {
     text = originalMax.toString
   }
   target.max.onChange(txfMax.text = target.max.get.toString)
   txfMax.onAction = handle {fillDoublePropertyFromText(target.max, txfMax, false)}
 
-  val originalMinorTickCount = target.minorTickCount.get()
-  val txfMinorTickCount = new TextField {
+  val originalMinorTickCount: Int = target.minorTickCount.get()
+  val txfMinorTickCount: TextField = new TextField {
     text = originalMinorTickCount.toString
   }
   target.minorTickCount.onChange(txfMinorTickCount.text = target.minorTickCount.get.toString)
   txfMinorTickCount.onAction = handle {fillIntPropertyFromText(target.minorTickCount, txfMinorTickCount, false)}
 
-  val originalMin = target.min.get()
-  val txfMin = new TextField {
+  val originalMin: Double = target.min.get()
+  val txfMin: TextField = new TextField {
     text = originalMin.toString
   }
   target.min.onChange(txfMin.text = target.min.get.toString)
   txfMin.onAction = handle {fillDoublePropertyFromText(target.min, txfMin, false)}
 
   val originalShowTickLabels = target.showTickLabels.get
-  val chbShowTickLabels = new CheckBox {
+  val chbShowTickLabels: CheckBox = new CheckBox {
     selected <==> target.showTickLabels
   }
 
   val originalShowTickMarks = target.showTickMarks.get
-  val chbShowTickMarks = new CheckBox {
+  val chbShowTickMarks: CheckBox = new CheckBox {
     selected <==> target.showTickMarks
   }
 
-  val originalSnapToTicks = target.snapToTicks.get()
-  val chbSnapToTicks = new CheckBox {
+  val originalSnapToTicks: Boolean = target.snapToTicks.get()
+  val chbSnapToTicks: CheckBox = new CheckBox {
     selected <==> target.snapToTicks
   }
 
-  val originalValueChanging = target.valueChanging.get()
-  val chbValueChanging = new CheckBox {
+  val originalValueChanging: Boolean = target.valueChanging.get()
+  val chbValueChanging: CheckBox = new CheckBox {
     selected <==> target.valueChanging
   }
 
-  val originalOrientation = target.orientation.get()
+  val originalOrientation: geometry.Orientation = target.orientation.get()
   val tggOrientation = new ToggleGroup
-  val rdbHorizontal = new RadioButton {
+  val rdbHorizontal: RadioButton = new RadioButton {
     text = Orientation.Horizontal.toString
     toggleGroup = tggOrientation
   }
-  val rdbVertical = new RadioButton {
+  val rdbVertical: RadioButton = new RadioButton {
     text = Orientation.Vertical.toString
     toggleGroup = tggOrientation
   }

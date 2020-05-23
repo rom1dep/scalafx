@@ -60,7 +60,7 @@ import scalafx.scene.layout.{HBox, VBox}
 
 object ScalaFX_Controls_03 extends JFXApp {
 
-  val theToggleGroup = new ToggleGroup {
+  val theToggleGroup: ToggleGroup = new ToggleGroup {
 
   }
 
@@ -73,24 +73,24 @@ object ScalaFX_Controls_03 extends JFXApp {
       }
   }
 
-  val homeRadioButton = new RadioButton {
+  val homeRadioButton: RadioButton = new RadioButton {
     toggleGroup = theToggleGroup
     userData = "Home"
   }
 
 
-  val calendarRadioButton = new RadioButton {
+  val calendarRadioButton: RadioButton = new RadioButton {
     toggleGroup = theToggleGroup
     userData = "Calendar"
   }
 
 
-  val contactsRadioButton = new RadioButton {
+  val contactsRadioButton: RadioButton = new RadioButton {
     toggleGroup = theToggleGroup
     userData = "Contacts"
   }
 
-  val vBox = new VBox {
+  val vBox: VBox = new VBox {
     spacing = 10
     children = List(
       homeRadioButton,
@@ -99,10 +99,10 @@ object ScalaFX_Controls_03 extends JFXApp {
     )
   }
 
-  val iconImageView = new ImageView {
+  val iconImageView: ImageView = new ImageView {
   }
 
-  val hBox = new HBox {
+  val hBox: HBox = new HBox {
     spacing = 50
     padding = Insets(20, 10, 10, 20)
     children = List(

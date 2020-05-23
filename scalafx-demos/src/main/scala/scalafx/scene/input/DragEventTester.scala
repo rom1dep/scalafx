@@ -44,7 +44,7 @@ import scalafx.scene.layout.StackPane
   */
 object DragEventTester extends JFXApp {
 
-  val stackPane = new StackPane {
+  val stackPane: StackPane = new StackPane {
     padding = Insets(10)
     children = new Label("Drop things here...")
   }

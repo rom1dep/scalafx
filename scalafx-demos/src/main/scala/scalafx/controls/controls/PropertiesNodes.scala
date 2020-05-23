@@ -35,6 +35,7 @@ import scalafx.scene.control._
 import scalafx.scene.layout.{GridPane, Priority}
 import scalafx.scene.text.Font._
 import scalafx.scene.text.{FontWeight, TextAlignment}
+import scalafx.scene.text.Font
 
 /**
  * Basic class to control a control properties
@@ -50,7 +51,7 @@ abstract class PropertiesNodes[T](target: T, title: String) extends TitledPane {
 
   protected def resetProperties(): Unit = {}
 
-  protected val btnReset = new Button {
+  protected val btnReset: Button = new Button {
     text = "Reset"
     onAction = handle {resetProperties()}
     alignmentInParent = Pos.Center
@@ -129,17 +130,17 @@ abstract class PropertiesNodes[T](target: T, title: String) extends TitledPane {
 
   }
 
-  protected def getCheckBox(property: BooleanProperty, tip: String = "") = new CheckBox {
+  protected def getCheckBox(property: BooleanProperty, tip: String = ""): CheckBox = new CheckBox {
     selected <==> property
     tooltip = if (tip.isEmpty) null else Tooltip(tip)
   }
 
-  protected def getTextField(property: StringProperty, tip: String = "") = new TextField {
+  protected def getTextField(property: StringProperty, tip: String = ""): TextField = new TextField {
     text <==> property
     tooltip = if (tip.isEmpty) null else Tooltip(tip)
   }
 
-  protected def getLabel(property: StringProperty) = new Label {
+  protected def getLabel(property: StringProperty): Label = new Label {
     text <== property
   }
 
@@ -153,5 +154,5 @@ object PropertiesNodes {
   private val lblBase = new Label
   private val fontBase = lblBase.font.get()
 
-  val TitleFont = font(fontBase.getFamily, FontWeight.Bold, fontBase.getSize)
+  val TitleFont: Font = font(fontBase.getFamily, FontWeight.Bold, fontBase.getSize)
 }

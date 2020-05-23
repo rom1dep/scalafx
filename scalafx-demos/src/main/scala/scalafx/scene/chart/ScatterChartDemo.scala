@@ -50,7 +50,7 @@ object ScatterChartDemo extends JFXApp {
   }
 
   /** Create XYChart.Series from a sequence of number pairs. */
-  def xySeries(name: String, data: Seq[(Double, Double)]) =
+  def xySeries(name: String, data: Seq[(Double, Double)]): javafx.scene.chart.XYChart.Series[Number,Number] =
     XYChart.Series[Number, Number](
       name,
       ObservableBuffer(data.map {case (x, y) => XYChart.Data[Number, Number](x, y)})

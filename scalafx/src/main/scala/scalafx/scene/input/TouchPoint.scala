@@ -85,7 +85,7 @@ class TouchPoint(override val delegate: jfxsi.TouchPoint)
    * Distinguishes between touch points targeted to the given node or some of its children from touch points targeted
    * somewhere else.
    */
-  def belongsTo(target: jfxe.EventTarget) = delegate.belongsTo(target)
+  def belongsTo(target: jfxe.EventTarget): Boolean = delegate.belongsTo(target)
 
   /**
    * Grabs this touch point by current event source.

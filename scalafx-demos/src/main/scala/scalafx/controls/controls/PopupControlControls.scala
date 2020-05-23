@@ -35,7 +35,7 @@ import scalafx.scene.control._
 class PopupControlControls(target: PopupControl) extends PropertiesNodes[PopupControl](target, "Popup Control Properties") {
 
   val originalId: String = target.id.get()
-  val txfID = new TextField {
+  val txfID: TextField = new TextField {
     text <==> target.id
     prefWidth = 50.0
     minWidth = 50.0

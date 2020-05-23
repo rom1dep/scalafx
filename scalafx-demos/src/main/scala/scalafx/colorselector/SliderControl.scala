@@ -50,7 +50,7 @@ class SliderControl(title: String) extends HBox {
 
   val realValue = new DoubleProperty()
 
-  def value = this.realValue
+  def value: DoubleProperty = this.realValue
 
   def value_=(d: Double): Unit = {
     if (d < Min) {
@@ -64,19 +64,19 @@ class SliderControl(title: String) extends HBox {
 
   val selectedControl = new BooleanProperty()
 
-  val chbSelected = new CheckBox {
+  val chbSelected: CheckBox = new CheckBox {
     id = "chbSelected"
     selected <==> selectedControl
   }
 
-  val lblTitle = new Label {
+  val lblTitle: Label = new Label {
     id = "lblTitle"
     text = title
     style <== cssForeground
   }
   lblTitle.font = Font.font(lblTitle.font().family, FontWeight.Bold, lblTitle.font().size)
 
-  val sldValue = new Slider {
+  val sldValue: Slider = new Slider {
     id = "sldValue"
     blockIncrement = 1.0
     majorTickUnit = 50.0
@@ -91,7 +91,7 @@ class SliderControl(title: String) extends HBox {
     value <==> realValue
   }
 
-  val lblValue = new Label {
+  val lblValue: Label = new Label {
     id = "lblValue"
     text <== realValue.asString("%03.0f")
     hgrow = Priority.Never
@@ -122,5 +122,5 @@ class SliderControl(title: String) extends HBox {
       doubleToInt(foregroundColor.green), doubleToInt(foregroundColor.blue))
   }
 
-  override def toString = "%s[%s, %b]".format(title, lblValue.text.get, selectedControl.value)
+  override def toString: String = "%s[%s, %b]".format(title, lblValue.text.get, selectedControl.value)
 }

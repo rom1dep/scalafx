@@ -61,17 +61,17 @@ import scalafx.scene.text.{Font, FontWeight, Text}
  */
 
 object ScalaFX_Layout_Panes_03 extends JFXApp {
-  val current = new Button {
+  val current: Button = new Button {
     text = "Current"
     prefWidth = 100
     prefHeight = 20
   }
-  val projected = new Button {
+  val projected: Button = new Button {
     text = "Projected"
     prefWidth = 100
     prefHeight = 20
   }
-  val data = List(
+  val data: List[Text] = List(
     new Text {
       text = "Data"
       font = Font.font("Amble CN", FontWeight.Bold, 14)

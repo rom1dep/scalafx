@@ -52,7 +52,7 @@ object ObservableIntegerArray extends ObservableArrayCompanionBase[Int, Observab
     * `end`.
     * @throws IllegalArgumentException if `step` is 0.
     */
-  def range(start: Int, end: Int, step: Int = 1) = apply(Array.range(start, end, step))
+  def range(start: Int, end: Int, step: Int = 1): ObservableIntegerArray = apply(Array.range(start, end, step))
 }
 
 // TODO: Enter link when JavaFX 8 API Docs are available on-line.
@@ -97,12 +97,12 @@ class ObservableIntegerArray(delegate: jfxc.ObservableIntegerArray = jfxc.FXColl
   /**
    * @inheritdoc
    */
-  override def get(idx: Int) = delegate.get(idx)
+  override def get(idx: Int): Int = delegate.get(idx)
 
   /**
    * @inheritdoc.
    */
-  override def addAll(elems: Int*) = {
+  override def addAll(elems: Int*): Unit = {
     delegate.addAll(elems:_*)
   }
 
@@ -179,12 +179,12 @@ class ObservableIntegerArray(delegate: jfxc.ObservableIntegerArray = jfxc.FXColl
   /**
    * @inheritdoc
    */
-  override def toArray(dest: Array[Int]) = delegate.toArray(dest)
+  override def toArray(dest: Array[Int]): Array[Int] = delegate.toArray(dest)
 
   /**
    * @inheritdoc
    */
-  override def toArray(srcIdx: Int, dest: Array[Int], length: Int) =
+  override def toArray(srcIdx: Int, dest: Array[Int], length: Int): Array[Int] =
     delegate.toArray(srcIdx, dest, length)
 
   // ArrayLike[V, T] abstract member function implementations.
@@ -193,5 +193,5 @@ class ObservableIntegerArray(delegate: jfxc.ObservableIntegerArray = jfxc.FXColl
    *
    * @return New empty $OIA.
    */
-  protected[this] override def newBuilder = ObservableIntegerArray.empty()
+  protected[this] override def newBuilder: ObservableIntegerArray = ObservableIntegerArray.empty()
 }

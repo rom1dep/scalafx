@@ -48,7 +48,7 @@ object CheckBoxTableCellDemo extends JFXApp {
     val name     = new StringProperty(this, "name", name_)
   }
 
-  val data = ObservableBuffer[Item](
+  val data: ObservableBuffer[Item] = ObservableBuffer[Item](
     (1 to 10).map { i => new Item(i % 2 == 0, s"Item $i") }
   )
 

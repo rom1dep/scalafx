@@ -50,12 +50,12 @@ import scalafx.util.StringConverter
 object TextFormatterWithChangeFilterDemo extends JFXApp {
 
   case class Message(text: String) {
-    override def toString = '"' + text + '"'
+    override def toString: String = '"' + text + '"'
   }
 
   val prompt = "> "
 
-  val converter = new StringConverter[Message] {
+  val converter: StringConverter[Message] = new StringConverter[Message] {
     override def fromString(s: String): Message = {
       val r =
         if (s.startsWith(prompt)) s.substring(prompt.length)
@@ -80,12 +80,12 @@ object TextFormatterWithChangeFilterDemo extends JFXApp {
   }
   val formatter = new TextFormatter[Message](converter, Message("hello"), filter)
 
-  val outputTextArea = new TextArea {
+  val outputTextArea: TextArea = new TextArea {
     editable = false
     focusTraversable = false
   }
 
-  val textField = new TextField {
+  val textField: TextField = new TextField {
     text = prompt
     textFormatter = formatter
     onAction = (a: ActionEvent) => {

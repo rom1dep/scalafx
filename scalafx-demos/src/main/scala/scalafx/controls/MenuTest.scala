@@ -39,7 +39,7 @@ import scalafx.scene.paint.Color
 
 object MenuTest extends JFXApp {
 
-  val menu = new Menu("File") {
+  val menu: Menu = new Menu("File") {
     items = List(
       new MenuItem("Open") {
         onAction = (ae: ActionEvent) => history.children += new Label("Selected item `Open`")
@@ -58,7 +58,7 @@ object MenuTest extends JFXApp {
 
   val history = new VBox()
 
-  val menuBar = new MenuBar {
+  val menuBar: MenuBar = new MenuBar {
     useSystemMenuBar = true
     minWidth = 100
     menus.add(menu)

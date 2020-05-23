@@ -73,9 +73,9 @@ object VideoCubeDemo extends JFXApp {
   // Location of the movie files has to be defined using system property `scalafx.graphics3d.VideoCubeDemo.folder`
   // For instance using command line option `-Dscalafx.graphics3d.VideoCubeDemo.folder=/tmp/videos`
   val folderSysProperty = "scalafx.graphics3d.VideoCubeDemo.folder"
-  val folderOption = Option[String](System.getProperty(folderSysProperty))
+  val folderOption: Option[String] = Option[String](System.getProperty(folderSysProperty))
 
-  val folder = folderOption match {
+  val folder: File = folderOption match {
     case Some(folderName) => {
       val file = new File(folderName)
       if (file.exists() && file.isDirectory) file
@@ -87,7 +87,7 @@ object VideoCubeDemo extends JFXApp {
 
   // You need your video files ;-) Cannot redistribute MOVIE FILES!!!
   // Substitute, for example, with your own family and vacation pictures
-  val vidFiles = List(
+  val vidFiles: List[String] = List(
     "FLIGHT Trailer 2012 Denzel Washington Movie - Official [HD].mp4",
     "LOOPER Trailer 2012 Bruce Willis Movie - Official [HD].mp4",
     "PROMETHEUS Trailer 2 - 2012 Movie - Official [HD].mp4",
@@ -95,7 +95,7 @@ object VideoCubeDemo extends JFXApp {
     "TED Movie Trailer 2012 - Official [HD].mp4",
     "THE HOBBIT Trailer - 2012 Movie - Official [HD].mp4")
 
-  val mediaPlayers = vidFiles.map {
+  val mediaPlayers: List[MediaPlayer] = vidFiles.map {
     filename => {
       val file = new File(folder, filename)
       val media = new Media(file.toURI.toURL.toExternalForm)
@@ -106,7 +106,7 @@ object VideoCubeDemo extends JFXApp {
     }
   }
 
-  val cubeSystem = create3dContent()
+  val cubeSystem: Node = create3dContent()
   cubeSystem.translateX = 800 / 2
   cubeSystem.translateY = 600 / 2
 
@@ -118,7 +118,8 @@ object VideoCubeDemo extends JFXApp {
   val lowY = -75
   val highX = 900
   val highY = 700
-  val starryBackground = new Group {
+  val starryBackground: starryBackground = new starryBackground
+  class starryBackground extends Group {
     val stars = (1 to 500).map(x => new Rectangle {
       x = lowX + scala.math.random * (highX - lowX)
       y = lowY + scala.math.random * (highY - lowY)
@@ -256,7 +257,7 @@ class VideoCube(val mediaPlayers: List[MediaPlayer], size: Double) extends Group
 
     def this(mediaPlayer: MediaPlayer) = this(mediaPlayer, 0.0)
 
-    val debugText = new Text {
+    val debugText: Text = new Text {
       font = new Font("Verdana", 36.0)
       fill = Color.Orange
       layoutX = size / 4
@@ -265,7 +266,7 @@ class VideoCube(val mediaPlayers: List[MediaPlayer], size: Double) extends Group
 
     val mediaView = new MediaView(mediaPlayer)
 
-    val backRect = new Rectangle {
+    val backRect: Rectangle = new Rectangle {
       x = 0
       y = 0
       translateZ = offset

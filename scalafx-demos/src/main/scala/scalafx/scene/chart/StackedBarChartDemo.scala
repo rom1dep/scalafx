@@ -33,10 +33,10 @@ import scalafx.scene.Scene
 
 object StackedBarChartDemo extends JFXApp {
 
-  val years = Seq("2007", "2008", "2009")
+  val years: Seq[String] = Seq("2007", "2008", "2009")
 
-  val xAxis = CategoryAxis(ObservableBuffer(years))
-  val yAxis = NumberAxis(
+  val xAxis: CategoryAxis = CategoryAxis(ObservableBuffer(years))
+  val yAxis: NumberAxis = NumberAxis(
     axisLabel = "Units Sold",
     lowerBound = 0,
     upperBound = 8000,
@@ -59,7 +59,7 @@ object StackedBarChartDemo extends JFXApp {
   }
 
   /** Create XYChart.Series from a sequence of numbers matching year strings. */
-  def xySeries(name: String, data: Seq[Int]) = {
+  def xySeries(name: String, data: Seq[Int]): javafx.scene.chart.XYChart.Series[String,Number] = {
     val series = years zip data
     XYChart.Series[String, Number](
       name,

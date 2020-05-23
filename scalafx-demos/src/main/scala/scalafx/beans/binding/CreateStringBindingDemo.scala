@@ -36,7 +36,7 @@ object CreateStringBindingDemo extends App {
 
 
   val a = new StringProperty()
-  val b = Bindings.createStringBinding(() => Option(a.value).getOrElse("").toLowerCase(), a)
+  val b: StringBinding = Bindings.createStringBinding(() => Option(a.value).getOrElse("").toLowerCase(), a)
 
   a.value = "HEllO"
   System.out.println("a: " + a.value)

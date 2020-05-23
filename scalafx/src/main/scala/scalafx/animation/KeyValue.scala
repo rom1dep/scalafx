@@ -149,7 +149,7 @@ class Tweenable[T <: Any, J <: Any](target: jfxbv.WritableValue[J], endValue: J)
    *
    * @param interpolator Interpolator to be used in KeyFrame.
    */
-  def tween(interpolator: jfxa.Interpolator) = KeyValue[J](target, endValue, interpolator)
+  def tween(interpolator: jfxa.Interpolator): KeyValue[J,J] = KeyValue[J](target, endValue, interpolator)
 
   /**
    * Returns a new [[scalafx.animation.KeyValue]] with [[scalafx.animation.Interpolator.LINEAR]] Interpolator.

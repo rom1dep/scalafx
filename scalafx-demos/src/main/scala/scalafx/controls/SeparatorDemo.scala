@@ -43,7 +43,7 @@ object SeparatorDemo extends JFXApp {
 
   val separator = new Separator
 
-  val pnlSeparator = new FlowPane {
+  val pnlSeparator: FlowPane = new FlowPane {
     children = List(new Button {text = "Button 1"}, separator, new Button {text = "Button 2"})
     minHeight = 100
     prefHeight = 100
@@ -51,7 +51,7 @@ object SeparatorDemo extends JFXApp {
     prefWidth = 300
   }
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -60,7 +60,7 @@ object SeparatorDemo extends JFXApp {
     children = List(new SeparatorControls(separator), new ControlControls(separator))
   }
 
-  val mainPane = new BorderPane {
+  val mainPane: BorderPane = new BorderPane {
     top = pnlSeparator
     center = controlsPane
   }
@@ -79,18 +79,18 @@ object SeparatorDemo extends JFXApp {
 
 class SeparatorControls(target: Separator) extends PropertiesNodes[Separator](target, "Separator Controls") {
 
-  val chbHPos = new ChoiceBox[jfxg.HPos] {
+  val chbHPos: ChoiceBox[jfxg.HPos] = new ChoiceBox[jfxg.HPos] {
     items = ObservableBuffer(HPos.Center, HPos.Left, HPos.Right)
     value <==> target.halignment
   }
 
-  val chbOrientation = new ChoiceBox[jfxg.Orientation] {
+  val chbOrientation: ChoiceBox[jfxg.Orientation] = new ChoiceBox[jfxg.Orientation] {
     items = ObservableBuffer(Orientation.Horizontal, Orientation.Vertical)
     value <==> target.orientation
   }
 
   // NOTE: The type of ChoiceBox is using javafx.geometry.VPos due to current limitations of binding implementation
-  val chbVPos = new ChoiceBox[jfxg.VPos] {
+  val chbVPos: ChoiceBox[jfxg.VPos] = new ChoiceBox[jfxg.VPos] {
     items = ObservableBuffer(VPos.Baseline, VPos.Bottom, VPos.Center, VPos.Top)
     value <==> target.valignment
   }

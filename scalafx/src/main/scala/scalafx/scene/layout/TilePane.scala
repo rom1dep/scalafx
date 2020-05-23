@@ -49,7 +49,7 @@ object TilePane {
   /**
    * Returns the child's alignment constraint if set.
    */
-  def getAlignment(child: Node) = jfxsl.TilePane.getAlignment(child)
+  def getAlignment(child: Node): jfxg.Pos = jfxsl.TilePane.getAlignment(child)
 
   /**
    * Sets the alignment for the child when contained by a stackpane.
@@ -61,7 +61,7 @@ object TilePane {
   /**
    * Returns the child's margin constraint if set.
    */
-  def getMargin(child: Node) = jfxsl.TilePane.getMargin(child)
+  def getMargin(child: Node): jfxg.Insets = jfxsl.TilePane.getMargin(child)
 
   /**
    * Sets the margin for the child when contained by an hbox.

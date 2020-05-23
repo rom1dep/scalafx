@@ -41,7 +41,7 @@ object PasswordFieldTest extends JFXApp {
 
   val passwordField = new PasswordField
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -49,7 +49,7 @@ object PasswordFieldTest extends JFXApp {
     children = List(new PasswordFieldControls(passwordField), new TextFieldControls(passwordField), new TextInputControlControls(passwordField), new ControlControls(passwordField))
   }
 
-  val mainPane = new BorderPane {
+  val mainPane: BorderPane = new BorderPane {
     top = new FlowPane {
       children = List(passwordField)
     }
@@ -72,7 +72,7 @@ object PasswordFieldTest extends JFXApp {
 
 class PasswordFieldControls(target: PasswordField) extends PropertiesNodes[PasswordField](target, "PasswordField Properties") {
 
-  val lblText = new Label {
+  val lblText: Label = new Label {
     text <== target.text
   }
 
@@ -80,12 +80,12 @@ class PasswordFieldControls(target: PasswordField) extends PropertiesNodes[Passw
    * It is not really working. Probably because when the button is clicked, password field lose its focus. To make Copy and cut work a possibility could be use
    * a keyboard shortcut. And they must be different Ctrl + C and Ctrl + X to not confuse with traditional shortcuts.
    */
-  val btnCopy = new Button {
+  val btnCopy: Button = new Button {
     text = "Copy"
     onAction = handle {target.copy()}
   }
 
-  val btnCut = new Button {
+  val btnCut: Button = new Button {
     text = "Cut"
     onAction = handle {target.cut()}
   }

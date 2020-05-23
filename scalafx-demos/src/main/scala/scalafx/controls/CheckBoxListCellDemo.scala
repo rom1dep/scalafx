@@ -44,11 +44,11 @@ import scalafx.scene.layout.VBox
 object CheckBoxListCellDemo extends JFXApp {
 
   class Item(initialSelection: Boolean, val name: String) {
-    val selected = BooleanProperty(initialSelection)
+    val selected: BooleanProperty = BooleanProperty(initialSelection)
     override def toString = name
   }
 
-  val data = ObservableBuffer[Item](
+  val data: ObservableBuffer[Item] = ObservableBuffer[Item](
     (1 to 10).map { i => new Item(i % 2 == 0, s"Item $i") }
   )
 

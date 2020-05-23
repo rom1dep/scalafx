@@ -39,7 +39,7 @@ object Task {
   /**
    * Creates a new [[scalafx.concurrent.Task]] with a operation that actually performs the background thread logic.
    */
-  def apply[T](op: => T) = new Task[T](new jfxc.Task[T] {
+  def apply[T](op: => T): Task[T] = new Task[T](new jfxc.Task[T] {
     def call = op
   }) {}
 }
@@ -54,7 +54,7 @@ abstract class Task[T](override val delegate: jfxc.Task[T])
   with EventHandlerDelegate
   with SFXDelegate[jfxc.Task[T]] {
 
-  def eventHandlerDelegate = delegate.asInstanceOf[EventHandled]
+  def eventHandlerDelegate: EventHandled = delegate.asInstanceOf[EventHandled]
 
   /**
    * The onCancelled event handler is called whenever the Task state transitions to the CANCELLED

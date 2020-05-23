@@ -56,7 +56,7 @@ object StyleOrigin
    */
   val UserAgent: StyleOrigin = new StyleOrigin(jfxcss.StyleOrigin.USER_AGENT)
 
-  override val unsortedValues = Array(Author, Inline, User, UserAgent)
+  override val unsortedValues: Array[StyleOrigin] = Array(Author, Inline, User, UserAgent)
 
 }
 

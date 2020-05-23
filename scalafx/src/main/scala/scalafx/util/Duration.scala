@@ -40,7 +40,7 @@ object Duration {
   def apply(millis: Double) = new Duration(millis)
 
   private[util] class DurationHelper(d: Double) {
-    def ms = apply(d)
+    def ms: Duration = apply(d)
     def s = new Duration(jfxu.Duration.seconds(d))
     def m = new Duration(jfxu.Duration.minutes(d))
     def h = new Duration(jfxu.Duration.hours(d))
@@ -92,7 +92,7 @@ class Duration(override val delegate: jfxu.Duration) extends SFXDelegate[jfxu.Du
   // Note: This is a "fixed" function...  rather than returning a duration we properly cancel units and return a Double
   def /(d: jfxu.Duration) = delegate.toMillis / d.toMillis
 
-  override def compare(that: Duration) = delegate.compareTo(that)
+  override def compare(that: Duration): Int = delegate.compareTo(that)
   def <(d: jfxu.Duration) = delegate.lessThan(d)
   def <=(d: jfxu.Duration) = delegate.lessThanOrEqualTo(d)
   def >(d: jfxu.Duration) = delegate.greaterThan(d)

@@ -147,7 +147,7 @@ object KeyCombination {
    * Constructs a new KeyCombination from the specified string.
    */
   @deprecated("Use apply instead", "1.0")
-  def valueOf(value: String) = jfxsi.KeyCombination.valueOf(value)
+  def valueOf(value: String): jfxsi.KeyCombination = jfxsi.KeyCombination.valueOf(value)
 
   /**
    * Constructs a new KeyCombination from the specified string.
@@ -199,6 +199,6 @@ abstract class KeyCombination protected(override val delegate: jfxsi.KeyCombinat
   /**
    * Tests whether this key combination matches the combination in the given KeyEvent.
    */
-  def `match`(event: KeyEvent) = delegate.`match`(event)
+  def `match`(event: KeyEvent): Boolean = delegate.`match`(event)
 
 }

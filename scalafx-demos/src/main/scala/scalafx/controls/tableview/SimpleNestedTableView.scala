@@ -34,7 +34,7 @@ import scalafx.scene.control.{TableColumn, TableView}
 
 object SimpleNestedTableView extends JFXApp {
 
-  val characters = ObservableBuffer[Person](
+  val characters: ObservableBuffer[Person] = ObservableBuffer[Person](
     new Person("Peggy", "Sue", "555-6798"),
     new Person("Desmond", "Sue", "555-6798"),
     new Person("Rocky", "Raccoon", "555-8036"),

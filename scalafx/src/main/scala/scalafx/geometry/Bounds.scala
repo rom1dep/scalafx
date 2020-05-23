@@ -45,37 +45,37 @@ abstract class Bounds protected(override val delegate: jfxg.Bounds) extends SFXD
   /**
    * Tests if the interior of this Bounds entirely contains the specified Bounds, b.
    */
-  def contains(b: Bounds) = delegate.contains(b)
+  def contains(b: Bounds): Boolean = delegate.contains(b)
 
   /**
    * Tests if the specified (x, y) coordinates are inside the boundary of Bounds.
    */
-  def contains(x: Double, y: Double) = delegate.contains(x, y)
+  def contains(x: Double, y: Double): Boolean = delegate.contains(x, y)
 
   /**
    * Tests if the specified (x, y, z) coordinates are inside the boundary of Bounds.
    */
-  def contains(x: Double, y: Double, z: Double) = delegate.contains(x, y, z)
+  def contains(x: Double, y: Double, z: Double): Boolean = delegate.contains(x, y, z)
 
   /**
    * Tests if the interior of this Bounds entirely contains the specified rectangular area.
    */
-  def contains(x: Double, y: Double, w: Double, h: Double) = delegate.contains(x, y, w, h)
+  def contains(x: Double, y: Double, w: Double, h: Double): Boolean = delegate.contains(x, y, w, h)
 
   /**
    * Tests if the interior of this Bounds entirely contains the specified rectangular area.
    */
-  def contains(x: Double, y: Double, z: Double, w: Double, h: Double, d: Double) = delegate.contains(x, y, z, w, h, d)
+  def contains(x: Double, y: Double, z: Double, w: Double, h: Double, d: Double): Boolean = delegate.contains(x, y, z, w, h, d)
 
   /**
    * Tests if the specified point is inside the boundary of Bounds.
    */
-  def contains(p: Point2D) = delegate.contains(p)
+  def contains(p: Point2D): Boolean = delegate.contains(p)
 
   /**
    * Tests if the specified point is inside the boundary of Bounds.
    */
-  def contains(p: Point3D) = delegate.contains(p)
+  def contains(p: Point3D): Boolean = delegate.contains(p)
 
   /**
    * The depth of this Bounds.
@@ -95,17 +95,17 @@ abstract class Bounds protected(override val delegate: jfxg.Bounds) extends SFXD
   /**
    * Tests if the interior of this Bounds intersects the interior of a specified Bounds, b.
    */
-  def intersects(b: Bounds) = delegate.intersects(b)
+  def intersects(b: Bounds): Boolean = delegate.intersects(b)
 
   /**
    * Tests if the interior of this Bounds intersects the interior of a specified rectangular area.
    */
-  def intersects(x: Double, y: Double, w: Double, h: Double) = delegate.intersects(x, y, w, h)
+  def intersects(x: Double, y: Double, w: Double, h: Double): Boolean = delegate.intersects(x, y, w, h)
 
   /**
    * Tests if the interior of this Bounds intersects the interior of a specified rectangular area.
    */
-  def intersects(x: Double, y: Double, z: Double, w: Double, h: Double, d: Double) = delegate.intersects(x, y, z, w, h, d)
+  def intersects(x: Double, y: Double, z: Double, w: Double, h: Double, d: Double): Boolean = delegate.intersects(x, y, z, w, h, d)
 
   /**
    * The x coordinate of the lower-right corner of this Bounds.

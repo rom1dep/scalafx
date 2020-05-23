@@ -33,7 +33,7 @@ import scalafx.scene.Scene
 
 object BarChartDemo extends JFXApp {
 
-  val years = Seq("2007", "2008", "2009")
+  val years: Seq[String] = Seq("2007", "2008", "2009")
 
   stage = new JFXApp.PrimaryStage {
     title = "BarChartDemo"
@@ -50,7 +50,7 @@ object BarChartDemo extends JFXApp {
   }
 
   /** Create XYChart.Series from a sequence of numbers matching year strings. */
-  def xySeries(name: String, data: Seq[Int]) = {
+  def xySeries(name: String, data: Seq[Int]): javafx.scene.chart.XYChart.Series[String,Number] = {
     val series = years zip data
     XYChart.Series[String, Number](
       name,

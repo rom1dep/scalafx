@@ -40,7 +40,7 @@ import scalafx.scene.layout.{HBox, VBox}
  */
 object SpinnersDemo extends JFXApp {
 
-  val styles = Seq(
+  val styles: Seq[String] = Seq(
     "spinner", // defaults to arrows on right stacked vertically
     Spinner.StyleClassArrowsOnRightHorizontal,
     Spinner.StyleClassArrowsOnLeftVertical,
@@ -49,19 +49,19 @@ object SpinnersDemo extends JFXApp {
     Spinner.StyleClassSplitArrowsHorizontal
   )
 
-  val intSpinners = for (s <- styles) yield
+  val intSpinners: Seq[Spinner[Integer]] = for (s <- styles) yield
     new Spinner[Integer](1, 99, 5) {
       styleClass += s
       prefWidth = 100
     }
 
-  val stringSpinners = for (s <- styles) yield
+  val stringSpinners: Seq[Spinner[String]] = for (s <- styles) yield
     new Spinner[String](ObservableBuffer("Grace", "Matt", "Katie")) {
       styleClass += s
       prefWidth = 100
     }
 
-  val doubleSpinners = for (s <- styles) yield
+  val doubleSpinners: Seq[Spinner[Double]] = for (s <- styles) yield
     new Spinner[Double](0.0, 1.0, 0.5, 0.01) {
       styleClass += s
       prefWidth = 100

@@ -37,7 +37,7 @@ import scalafx.scene.web._
 
 object WebDemo extends JFXApp {
 
-  val browser = new WebView {
+  val browser: WebView = new WebView {
     hgrow = Priority.Always
     vgrow = Priority.Always
     onAlert = (e: WebEvent[_]) => println("onAlert: " + e)
@@ -50,7 +50,7 @@ object WebDemo extends JFXApp {
   val engine = browser.engine
   engine.load("http://www.scalafx.org/")
 
-  val txfUrl = new TextField {
+  val txfUrl: TextField = new TextField {
     text = engine.location.value
     hgrow = Priority.Always
     vgrow = Priority.Never

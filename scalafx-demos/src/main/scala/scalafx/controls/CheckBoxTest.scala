@@ -40,11 +40,11 @@ import scalafx.scene.paint.Color
 
 object CheckBoxTest extends JFXApp {
 
-  val check = new CheckBox {
+  val check: CheckBox = new CheckBox {
     text = "CheckBox"
   }
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -52,7 +52,7 @@ object CheckBoxTest extends JFXApp {
     children = List(new CheckBoxControls(check), new ControlControls(check))
   }
 
-  val mainPane = new BorderPane {
+  val mainPane: BorderPane = new BorderPane {
     top = check
     center = controlsPane
     vgrow = Priority.Always
@@ -73,7 +73,7 @@ object CheckBoxTest extends JFXApp {
 
 class CheckBoxControls(check: CheckBox) extends PropertiesNodes[CheckBox](check, "CheckBox Properties") {
 
-  val lblSelected = new Label {
+  val lblSelected: Label = new Label {
     text = check.selected().toString
   }
   check.onAction = (event: ActionEvent) => {
@@ -81,17 +81,17 @@ class CheckBoxControls(check: CheckBox) extends PropertiesNodes[CheckBox](check,
   }
 
 
-  val btnAllowIndeterminate = new ToggleButton {
+  val btnAllowIndeterminate: ToggleButton = new ToggleButton {
     text = "Allow Indeterminate"
     selected <==> check.allowIndeterminate
   }
 
-  val btnFire = new Button {
+  val btnFire: Button = new Button {
     text = "Fire!"
     onAction = handle {check.fire()}
   }
 
-  val txfText = new TextField {
+  val txfText: TextField = new TextField {
     text <==> check.text
   }
 

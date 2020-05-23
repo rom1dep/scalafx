@@ -33,6 +33,7 @@ import scalafx.beans.property.{BooleanProperty, ObjectProperty, ReadOnlyBooleanP
 import scalafx.delegate.SFXDelegate
 
 import scala.language.implicitConversions
+import javafx.beans.property
 
 object ComboBoxBase {
   implicit def sfxComboBoxBase2jfx[T](cb: ComboBoxBase[T]): jfxsc.ComboBoxBase[T] = if (cb != null) cb.delegate else null
@@ -122,7 +123,7 @@ abstract class ComboBoxBase[T](override val delegate: jfxsc.ComboBoxBase[T]) ext
    * Sets the Hidden event handler for this ComboBoxBase type UI object
    * @since 2.2
    */
-  def onHidden = delegate.onHiddenProperty()
+  def onHidden: property.ObjectProperty[jfxe.EventHandler[jfxe.Event]] = delegate.onHiddenProperty()
 
   def onHidden_=(eventHandler: jfxe.EventHandler[jfxe.Event]): Unit = {
     onHidden() = eventHandler
@@ -132,7 +133,7 @@ abstract class ComboBoxBase[T](override val delegate: jfxsc.ComboBoxBase[T]) ext
    * Sets the Hiding event handler for this ComboBoxBase type UI object
    * @since 2.2
    */
-  def onHiding = delegate.onHidingProperty()
+  def onHiding: property.ObjectProperty[jfxe.EventHandler[jfxe.Event]] = delegate.onHidingProperty()
 
   def onHiding_=(eventHandler: jfxe.EventHandler[jfxe.Event]): Unit = {
     onHiding() = eventHandler
@@ -142,7 +143,7 @@ abstract class ComboBoxBase[T](override val delegate: jfxsc.ComboBoxBase[T]) ext
    * Sets the Showing event handler for this ComboBoxBase type UI object
    * @since 2.2
    */
-  def onShowing = delegate.onShowingProperty()
+  def onShowing: property.ObjectProperty[jfxe.EventHandler[jfxe.Event]] = delegate.onShowingProperty()
 
   def onShowing_=(eventHandler: jfxe.EventHandler[jfxe.Event]): Unit = {
     onShowing() = eventHandler
@@ -152,7 +153,7 @@ abstract class ComboBoxBase[T](override val delegate: jfxsc.ComboBoxBase[T]) ext
    * Sets the Shown event handler for this ComboBoxBase type UI object
    * @since 2.2
    */
-  def onShown = delegate.onShownProperty()
+  def onShown: property.ObjectProperty[jfxe.EventHandler[jfxe.Event]] = delegate.onShownProperty()
 
   def onShown_=(eventHandler: jfxe.EventHandler[jfxe.Event]): Unit = {
     onShown() = eventHandler

@@ -35,6 +35,7 @@ import scalafx.geometry.Insets
 import scalafx.scene.Node
 
 import scala.language.implicitConversions
+import javafx.geometry
 
 object VBox {
   implicit def sfxVBox2jfx(v: VBox): jfxsl.VBox = if (v != null) v.delegate else null
@@ -49,7 +50,7 @@ object VBox {
   /**
    * Returns the child's margin constraint if set.
    */
-  def getMargin(child: Node) = jfxsl.VBox.getMargin(child)
+  def getMargin(child: Node): geometry.Insets = jfxsl.VBox.getMargin(child)
 
   /**
    * Sets the margin for the child when contained by a vbox.
@@ -61,7 +62,7 @@ object VBox {
   /**
    * Returns the child's vgrow constraint if set.
    */
-  def getVgrow(child: Node) = jfxsl.VBox.getVgrow(child)
+  def getVgrow(child: Node): jfxsl.Priority = jfxsl.VBox.getVgrow(child)
 
   /**
    * Sets the vertical grow priority for the child when contained by a vbox.

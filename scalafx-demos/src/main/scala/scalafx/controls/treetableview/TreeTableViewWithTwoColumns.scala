@@ -47,7 +47,7 @@ object TreeTableViewWithTwoColumns extends JFXApp {
     def this(_name: String, _email: String) = this(StringProperty(_name), StringProperty(_email))
   }
 
-  val employees = Seq(
+  val employees: Seq[Employee] = Seq(
     new Employee("Ethan Williams", "ethan.williams@example.com"),
     new Employee("Emma Jones", "emma.jones@example.com"),
     new Employee("Michael Brown", "michael.brown@example.com"),
@@ -59,7 +59,7 @@ object TreeTableViewWithTwoColumns extends JFXApp {
 
   assert(depIcon != null)
 
-  val rootNode = new TreeItem(new Employee("Sales Department", ""), depIcon) {
+  val rootNode: TreeItem[Employee] = new TreeItem(new Employee("Sales Department", ""), depIcon) {
     expanded = true
     children = employees.map(new TreeItem(_))
   }

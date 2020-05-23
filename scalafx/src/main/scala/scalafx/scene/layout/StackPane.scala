@@ -36,6 +36,7 @@ import scalafx.scene.Node
 import scalafx.scene.Node.sfxNode2jfx
 
 import scala.language.implicitConversions
+import javafx.geometry
 
 object StackPane {
   implicit def sfxStackPane2jfx(v: StackPane): jfxsl.StackPane = if (v != null) v.delegate else null
@@ -50,7 +51,7 @@ object StackPane {
   /**
    * Returns the child's alignment constraint if set.
    */
-  def getAlignment(child: Node) = jfxsl.StackPane.getAlignment(child)
+  def getAlignment(child: Node): geometry.Pos = jfxsl.StackPane.getAlignment(child)
 
   /**
    * Sets the alignment for the child when contained by a stackpane.
@@ -62,7 +63,7 @@ object StackPane {
   /**
    * Returns the child's margin constraint if set.
    */
-  def getMargin(child: Node) = jfxsl.StackPane.getMargin(child)
+  def getMargin(child: Node): geometry.Insets = jfxsl.StackPane.getMargin(child)
 
   /**
    * Sets the margin for the child when contained by an hbox.

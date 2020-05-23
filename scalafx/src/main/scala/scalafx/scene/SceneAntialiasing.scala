@@ -68,7 +68,7 @@ object SceneAntialiasing {
   /**
    * Defined SceneAntialiasing values
    */
-  val values = Seq(Disabled, Balanced)
+  val values: Seq[SceneAntialiasing] = Seq(Disabled, Balanced)
 }
 
 sealed abstract class SceneAntialiasing(override val delegate: jfxs.SceneAntialiasing)

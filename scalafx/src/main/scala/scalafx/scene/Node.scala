@@ -47,6 +47,8 @@ import scalafx.scene.layout.Priority
 import scalafx.scene.transform.Transform
 
 import scala.language.implicitConversions
+import java.{util => ju}
+import javafx.beans.property
 
 /**
  * Companion object for [[scalafx.scene.Node]].
@@ -840,13 +842,13 @@ abstract class Node protected(override val delegate: jfxs.Node)
    * Returns true if the given point (specified in the local coordinate space of this Node) is
    * contained within the shape of this Node.
    */
-  def contains(localX: Double, localY: Double) = delegate.contains(localX, localY)
+  def contains(localX: Double, localY: Double): Boolean = delegate.contains(localX, localY)
 
   /**
    * Returns true if the given point (specified in the local coordinate space of this Node) is
    * contained within the shape of this Node.
    */
-  def contains(localPoint: Point2D) = delegate.contains(localPoint)
+  def contains(localPoint: Point2D): Boolean = delegate.contains(localPoint)
 
   /**
    * Fires the specified event.
@@ -865,50 +867,50 @@ abstract class Node protected(override val delegate: jfxs.Node)
    * Returns true if the given bounds (specified in the local coordinate space of this Node)
    * intersects the shape of this Node.
    */
-  def intersects(localBounds: Bounds) = delegate.intersects(localBounds)
+  def intersects(localBounds: Bounds): Boolean = delegate.intersects(localBounds)
 
   /**
    * Returns true if the given rectangle (specified in the local coordinate space of this Node)
    * intersects the shape of this Node.
    */
-  def intersects(localX: Double, localY: Double, localWidth: Double, localHeight: Double) =
+  def intersects(localX: Double, localY: Double, localWidth: Double, localHeight: Double): Boolean =
     delegate.intersects(localX, localY, localWidth, localHeight)
 
   /**
    * Transforms a bounds from the local coordinate space of this Node into the coordinate space of
    * its parent.
    */
-  def localToParent(localBounds: Bounds) = delegate.localToParent(localBounds)
+  def localToParent(localBounds: Bounds): jfxg.Bounds = delegate.localToParent(localBounds)
 
   /**
    * Transforms a point from the local coordinate space of this Node into the coordinate space of
    * its parent.
    */
-  def localToParent(localX: Double, localY: Double) = delegate.localToParent(localX, localY)
+  def localToParent(localX: Double, localY: Double): jfxg.Point2D = delegate.localToParent(localX, localY)
 
   /**
    * Transforms a point from the local coordinate space of this Node into the coordinate space of
    * its parent.
    */
-  def localToParent(localPoint: Point2D) = delegate.localToParent(localPoint)
+  def localToParent(localPoint: Point2D): jfxg.Point2D = delegate.localToParent(localPoint)
 
   /**
    * Transforms a bounds from the local coordinate space of this Node into the coordinate space of
    * its Scene.
    */
-  def localToScene(localBounds: Bounds) = delegate.localToScene(localBounds)
+  def localToScene(localBounds: Bounds): jfxg.Bounds = delegate.localToScene(localBounds)
 
   /**
    * Transforms a point from the local coordinate space of this Node into the coordinate space of
    * its Scene.
    */
-  def localToScene(localX: Double, localY: Double) = delegate.localToScene(localX, localY)
+  def localToScene(localX: Double, localY: Double): jfxg.Point2D = delegate.localToScene(localX, localY)
 
   /**
    * Transforms a point from the local coordinate space of this Node into the coordinate space of
    * its Scene.
    */
-  def localToScene(localPoint: Point2D) = delegate.localToScene(localPoint)
+  def localToScene(localPoint: Point2D): jfxg.Point2D = delegate.localToScene(localPoint)
 
   /**
    * Finds this Node, or the first sub-node, based on the given CSS selector.
@@ -918,45 +920,45 @@ abstract class Node protected(override val delegate: jfxs.Node)
   /**
    * Finds all Nodes, including this one and any children, which match the given CSS selector.
    */
-  def lookupAll(selector: String) = delegate.lookupAll(selector)
+  def lookupAll(selector: String): ju.Set[jfxs.Node] = delegate.lookupAll(selector)
 
   /**
    * Returns the node's maximum height for use in layout calculations.
    */
-  def maxHeight(height: Double) = delegate.maxHeight(height)
+  def maxHeight(height: Double): Double = delegate.maxHeight(height)
 
   /**
    * Returns the node's maximum width for use in layout calculations.
    */
-  def maxWidth(width: Double) = delegate.maxWidth(width)
+  def maxWidth(width: Double): Double = delegate.maxWidth(width)
 
   /**
    * Returns the node's minimum height for use in layout calculations.
    */
-  def minHeight(height: Double) = delegate.minHeight(height)
+  def minHeight(height: Double): Double = delegate.minHeight(height)
 
   /**
    * Returns the node's minimum width for use in layout calculations.
    */
-  def minWidth(width: Double) = delegate.minWidth(width)
+  def minWidth(width: Double): Double = delegate.minWidth(width)
 
   /**
    * Transforms a rectangle from the coordinate space of the parent into the local coordinate
    * space of this Node.
    */
-  def parentToLocal(parentBounds: Bounds) = delegate.parentToLocal(parentBounds)
+  def parentToLocal(parentBounds: Bounds): jfxg.Bounds = delegate.parentToLocal(parentBounds)
 
   /**
    * Transforms a point from the coordinate space of the parent into the local coordinate space
    * of this Node.
    */
-  def parentToLocal(parentX: Double, parentY: Double) = delegate.parentToLocal(parentX, parentY)
+  def parentToLocal(parentX: Double, parentY: Double): jfxg.Point2D = delegate.parentToLocal(parentX, parentY)
 
   /**
    * Transforms a point from the coordinate space of the parent into the local coordinate space
    * of this Node.
    */
-  def parentToLocal(parentPoint: Point2D) = delegate.parentToLocal(parentPoint)
+  def parentToLocal(parentPoint: Point2D): jfxg.Point2D = delegate.parentToLocal(parentPoint)
 
   /**
    * Sets the node's layoutX and layoutY translation properties in order to relocate this node
@@ -992,19 +994,19 @@ abstract class Node protected(override val delegate: jfxs.Node)
    * Transforms a rectangle from the coordinate space of the Scene into the local coordinate space
    * of this Node.
    */
-  def sceneToLocal(sceneBounds: Bounds) = delegate.sceneToLocal(sceneBounds)
+  def sceneToLocal(sceneBounds: Bounds): jfxg.Bounds = delegate.sceneToLocal(sceneBounds)
 
   /**
    * Transforms a point from the coordinate space of the Scene into the local coordinate space
    * of this Node.
    */
-  def sceneToLocal(sceneX: Double, sceneY: Double) = delegate.sceneToLocal(sceneX, sceneY)
+  def sceneToLocal(sceneX: Double, sceneY: Double): jfxg.Point2D = delegate.sceneToLocal(sceneX, sceneY)
 
   /**
    * Transforms a point from the coordinate space of the Scene into the local coordinate space
    * of this Node.
    */
-  def sceneToLocal(scenePoint: Point2D) = delegate.sceneToLocal(scenePoint)
+  def sceneToLocal(scenePoint: Point2D): jfxg.Point2D = delegate.sceneToLocal(scenePoint)
 
   /**
    * Takes a snapshot of this node and returns the rendered image when it is ready.
@@ -1029,7 +1031,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
   /**
    * Confirms a potential drag and drop gesture that is recognized over this Node.
    */
-  def startDragAndDrop(transferModes: jfxsi.TransferMode*) =
+  def startDragAndDrop(transferModes: jfxsi.TransferMode*): jfxsi.Dragboard =
     delegate.startDragAndDrop(transferModes: _*)
 
   /**
@@ -1086,7 +1088,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onRotationFinished = delegate.onRotationFinishedProperty()
+  def onRotationFinished: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.RotateEvent]] = delegate.onRotationFinishedProperty()
 
   def onRotationFinished_=(v: jfxe.EventHandler[_ >: jfxsi.RotateEvent]): Unit = {
     onRotationFinished() = v
@@ -1097,7 +1099,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onRotationStarted = delegate.onRotationFinishedProperty()
+  def onRotationStarted: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.RotateEvent]] = delegate.onRotationFinishedProperty()
 
   def onRotationStarted_=(v: jfxe.EventHandler[_ >: jfxsi.RotateEvent]): Unit = {
     onRotationStarted() = v
@@ -1108,7 +1110,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onScrollFinished = delegate.onScrollFinishedProperty()
+  def onScrollFinished: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.ScrollEvent]] = delegate.onScrollFinishedProperty()
 
   def onScrollFinished_=(v: jfxe.EventHandler[_ >: jfxsi.ScrollEvent]): Unit = {
     onScrollFinished() = v
@@ -1119,7 +1121,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onScrollStarted = delegate.onScrollStartedProperty()
+  def onScrollStarted: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.ScrollEvent]] = delegate.onScrollStartedProperty()
 
   def onScrollStarted_=(v: jfxe.EventHandler[_ >: jfxsi.ScrollEvent]): Unit = {
     onScrollStarted() = v
@@ -1130,7 +1132,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onSwipeDown = delegate.onSwipeDownProperty()
+  def onSwipeDown: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.SwipeEvent]] = delegate.onSwipeDownProperty()
 
   def onSwipeDown_=(v: jfxe.EventHandler[_ >: jfxsi.SwipeEvent]): Unit = {
     onSwipeDown() = v
@@ -1141,7 +1143,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onSwipeLeft = delegate.onSwipeLeftProperty()
+  def onSwipeLeft: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.SwipeEvent]] = delegate.onSwipeLeftProperty()
 
   def onSwipeLeft_=(v: jfxe.EventHandler[_ >: jfxsi.SwipeEvent]): Unit = {
     onSwipeLeft() = v
@@ -1152,7 +1154,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onSwipeUp = delegate.onSwipeUpProperty()
+  def onSwipeUp: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.SwipeEvent]] = delegate.onSwipeUpProperty()
 
   def onSwipeUp_=(v: jfxe.EventHandler[_ >: jfxsi.SwipeEvent]): Unit = {
     onSwipeUp() = v
@@ -1163,7 +1165,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onSwipeRight = delegate.onSwipeRightProperty()
+  def onSwipeRight: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.SwipeEvent]] = delegate.onSwipeRightProperty()
 
   def onSwipeRight_=(v: jfxe.EventHandler[_ >: jfxsi.SwipeEvent]): Unit = {
     onSwipeRight() = v
@@ -1174,7 +1176,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onZoom = delegate.onZoomProperty()
+  def onZoom: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.ZoomEvent]] = delegate.onZoomProperty()
 
   def onZoom_=(v: jfxe.EventHandler[_ >: jfxsi.ZoomEvent]): Unit = {
     onZoom() = v
@@ -1185,7 +1187,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onZoomFinished = delegate.onZoomFinishedProperty()
+  def onZoomFinished: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.ZoomEvent]] = delegate.onZoomFinishedProperty()
 
   def onZoomFinished_=(v: jfxe.EventHandler[_ >: jfxsi.ZoomEvent]): Unit = {
     onZoomFinished() = v
@@ -1196,7 +1198,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onZoomStarted = delegate.onZoomStartedProperty()
+  def onZoomStarted: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.ZoomEvent]] = delegate.onZoomStartedProperty()
 
   def onZoomStarted_=(v: jfxe.EventHandler[_ >: jfxsi.ZoomEvent]): Unit = {
     onZoomStarted() = v
@@ -1207,7 +1209,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onTouchMoved = delegate.onTouchMovedProperty()
+  def onTouchMoved: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.TouchEvent]] = delegate.onTouchMovedProperty()
 
   def onTouchMoved_=(v: jfxe.EventHandler[_ >: jfxsi.TouchEvent]): Unit = {
     onTouchMoved() = v
@@ -1218,7 +1220,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onTouchPressed = delegate.onTouchPressedProperty()
+  def onTouchPressed: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.TouchEvent]] = delegate.onTouchPressedProperty()
 
   def onTouchPressed_=(v: jfxe.EventHandler[_ >: jfxsi.TouchEvent]): Unit = {
     onTouchPressed() = v
@@ -1229,7 +1231,7 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onTouchReleased = delegate.onTouchReleasedProperty()
+  def onTouchReleased: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.TouchEvent]] = delegate.onTouchReleasedProperty()
 
   def onTouchReleased_=(v: jfxe.EventHandler[_ >: jfxsi.TouchEvent]): Unit = {
     onTouchReleased() = v
@@ -1240,13 +1242,13 @@ abstract class Node protected(override val delegate: jfxs.Node)
    *
    * @since 2.2
    */
-  def onTouchStationary = delegate.onTouchStationaryProperty()
+  def onTouchStationary: property.ObjectProperty[jfxe.EventHandler[_ >: jfxsi.TouchEvent]] = delegate.onTouchStationaryProperty()
 
   def onTouchStationary_=(v: jfxe.EventHandler[_ >: jfxsi.TouchEvent]): Unit = {
     onTouchStationary() = v
   }
 
-  override protected def eventHandlerDelegate = delegate.asInstanceOf[EventHandled]
+  override protected def eventHandlerDelegate: EventHandled = delegate.asInstanceOf[EventHandled]
 
   /**
    * Defines the rendering and picking order of this `Node` within its

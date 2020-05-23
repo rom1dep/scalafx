@@ -37,17 +37,17 @@ import scalafx.scene.paint.Color
 import scalafx.scene.shape.Rectangle
 
 object JavaFXAnimation extends JFXApp {
-  val rect1 = new Rectangle {
+  val rect1: Rectangle = new Rectangle {
     width = 100
     height = 100
     fill = Color.Red
   }
-  val rect2 = new Rectangle {
+  val rect2: Rectangle = new Rectangle {
     width = 50
     height = 50
     fill = Color.LightGreen
   }
-  val timeline = new Timeline {
+  val timeline: Timeline = new Timeline {
     cycleCount = Timeline.Indefinite
     autoReverse = true
     keyFrames = Seq(

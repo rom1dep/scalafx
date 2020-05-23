@@ -588,7 +588,7 @@ class Color(override val delegate: jfxsp.Color) extends Paint(delegate) with SFX
   /*
    * Does someone uses this method?
    */
-  def opacity(o: Double) = jfxsp.Color.color(red, green, blue, o)
+  def opacity(o: Double): jfxsp.Color = jfxsp.Color.color(red, green, blue, o)
 
   /**
    * Creates a new Color that is a brighter version of this Color.

@@ -43,7 +43,7 @@ object NumberAxis {
   def apply(axisLabel: String, lowerBound: Double, upperBound: Double, tickUnit: Double) =
     new NumberAxis(new jfxsc.NumberAxis(axisLabel, lowerBound, upperBound, tickUnit))
 
-  def apply(axisLabel: String) = new NumberAxis {label = axisLabel}
+  def apply(axisLabel: String): NumberAxis = new NumberAxis {label = axisLabel}
 
   def apply() = new NumberAxis()
 

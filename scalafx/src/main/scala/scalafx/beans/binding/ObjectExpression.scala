@@ -49,11 +49,11 @@ class ObjectExpression[J](val delegate: jfxbb.ObjectExpression[J]) {
   def =!=[T](v: ObservableValue[T, T]) = delegate.isNotEqualTo(ObservableValue.sfxObservableValue2jfxObjectValue[T](v))
   def =!=(v: AnyRef) = delegate.isNotEqualTo(v)
 
-  def selectDouble(s: String) = jfxbb.Bindings.selectDouble(this.delegate, s)
-  def selectBoolean(s: String) = jfxbb.Bindings.selectBoolean(this.delegate, s)
-  def selectFloat(s: String) = jfxbb.Bindings.selectFloat(this.delegate, s)
-  def selectInteger(s: String) = jfxbb.Bindings.selectInteger(this.delegate, s)
-  def selectLong(s: String) = jfxbb.Bindings.selectLong(this.delegate, s)
-  def selectString(s: String) = jfxbb.Bindings.selectString(this.delegate, s)
-  def select[T](s: String) = jfxbb.Bindings.select[T](this.delegate, s)
+  def selectDouble(s: String): jfxbb.DoubleBinding = jfxbb.Bindings.selectDouble(this.delegate, s)
+  def selectBoolean(s: String): jfxbb.BooleanBinding = jfxbb.Bindings.selectBoolean(this.delegate, s)
+  def selectFloat(s: String): jfxbb.FloatBinding = jfxbb.Bindings.selectFloat(this.delegate, s)
+  def selectInteger(s: String): jfxbb.IntegerBinding = jfxbb.Bindings.selectInteger(this.delegate, s)
+  def selectLong(s: String): jfxbb.LongBinding = jfxbb.Bindings.selectLong(this.delegate, s)
+  def selectString(s: String): jfxbb.StringBinding = jfxbb.Bindings.selectString(this.delegate, s)
+  def select[T](s: String): jfxbb.ObjectBinding[T] = jfxbb.Bindings.select[T](this.delegate, s)
 }

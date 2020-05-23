@@ -29,6 +29,7 @@ package scalafx.beans.binding
 
 import scalafx.Includes._
 import scalafx.beans.property.DoubleProperty
+import javafx.beans.binding.DoubleBinding
 
 /**
   * Create custom double binding that computes a square.
@@ -37,7 +38,7 @@ object CreateDoubleBindingDemo extends App {
 
 
   val a = new DoubleProperty()
-  val b = Bindings.createDoubleBinding(() => a.value * a.value, a)
+  val b: DoubleBinding = Bindings.createDoubleBinding(() => a.value * a.value, a)
 
   a.value = 2
   System.out.println("a: " + a.value)

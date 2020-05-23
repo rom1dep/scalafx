@@ -32,6 +32,7 @@ import scala.language.implicitConversions
 import scalafx.Includes._
 import scalafx.delegate.SFXDelegate
 import scalafx.geometry.Rectangle2D
+import javafx.collections.ObservableList
 
 object Screen {
   implicit def sfxScreen2jfx(v: Screen): jfxs.Screen = if (v != null) v.delegate else null
@@ -49,13 +50,13 @@ object Screen {
   /**
    * Returns a ObservableList of Screens that intersects the provided rectangle.
    */
-  def screensForRectangle(x: Double, y: Double, width: Double, height: Double) =
+  def screensForRectangle(x: Double, y: Double, width: Double, height: Double): ObservableList[jfxs.Screen] =
     jfxs.Screen.getScreensForRectangle(x, y, width, height)
 
   /**
    * Returns a ObservableList of Screens that intersects the provided rectangle.
    */
-  def screensForRectangle(r: Rectangle2D) = jfxs.Screen.getScreensForRectangle(r)
+  def screensForRectangle(r: Rectangle2D): ObservableList[jfxs.Screen] = jfxs.Screen.getScreensForRectangle(r)
 
 }
 

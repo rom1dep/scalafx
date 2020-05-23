@@ -41,7 +41,7 @@ import scalafx.scene.control.{TreeItem, TreeTableColumn, TreeTableView}
 object TreeTableViewWithOneColumn extends JFXApp {
 
   // Creating items to be displayed in the TreeTableView
-  val rootNode = new TreeItem("Root node") {
+  val rootNode: TreeItem[String] = new TreeItem("Root node") {
     expanded = true
     children = Seq(
       new TreeItem("Child Node 1"),

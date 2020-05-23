@@ -46,17 +46,17 @@ class ComboBoxControls(target: ComboBox[String]) extends PropertiesNodes[ComboBo
     target -= target.value.get
   }
 
-  val txfVisibleRowCount = new TextField {
+  val txfVisibleRowCount: TextField = new TextField {
     text = target.visibleRowCount.get.toString
   }
   txfVisibleRowCount.onAction = handle {  fillIntPropertyFromText(target.visibleRowCount, txfVisibleRowCount, false) }
 
-  val btnAddItem = new Button {
+  val btnAddItem: Button = new Button {
     text = "Add new Item"
     onAction = handle { addNewTab() }
   }
 
-  val btnRemoveItem = new Button {
+  val btnRemoveItem: Button = new Button {
     text = "Remove Item"
     onAction = handle { removeCurrentItem() }
   }

@@ -40,7 +40,7 @@ object TextFieldTest extends JFXApp {
 
   val textField = new TextField
 
-  val controlsPane = new VBox {
+  val controlsPane: VBox = new VBox {
     spacing = 5
     fillWidth = true
     alignment = Pos.Center
@@ -48,7 +48,7 @@ object TextFieldTest extends JFXApp {
     children = List(new TextFieldControls(textField), new TextInputControlControls(textField), new ControlControls(textField))
   }
 
-  val mainPane = new BorderPane {
+  val mainPane: BorderPane = new BorderPane {
     top = new FlowPane {
       children = List(textField)
     }

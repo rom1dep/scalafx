@@ -65,7 +65,7 @@ trait SFXDelegate[+D <: Object] extends AnyRef {
   /**
     * @return Returns the original delegate's `toString()` adding a `[SFX]` prefix.
     */
-  override def toString = "[SFX]" + delegate.toString
+  override def toString: String = "[SFX]" + delegate.toString
 
   /**
     * Verifies if a object is equals to this delegate.

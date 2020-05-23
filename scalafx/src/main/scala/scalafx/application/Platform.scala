@@ -66,7 +66,7 @@ object Platform {
   }
 
   /** Queries whether a specific conditional feature is supported by the platform. */
-  def isSupported(feature: ConditionalFeature) = jfxa.Platform.isSupported(feature)
+  def isSupported(feature: ConditionalFeature): Boolean = jfxa.Platform.isSupported(feature)
 
   /**
    * This method starts the JavaFX runtime. The specified Runnable will then be

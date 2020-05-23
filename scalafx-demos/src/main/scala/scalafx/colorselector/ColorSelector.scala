@@ -46,15 +46,16 @@ import scalafx.scene.text.TextAlignment
 import scalafx.util.StringConverter
 
 import scala.collection.Seq
+import javafx.scene.paint
 
 
 object ColorSelector extends JFXApp {
 
   // VAL'S DEFINITION - BEGIN
 
-  lazy val allControls = List(controlRed, controlGreen, controlBlue, controlAlpha)
+  lazy val allControls: List[SliderControl] = List(controlRed, controlGreen, controlBlue, controlAlpha)
 
-  val currentColor = ObjectProperty(this, "Color", Color.White)
+  val currentColor: ObjectProperty[paint.Color] = ObjectProperty(this, "Color", Color.White)
   currentColor.onChange(colorChanged())
 
   val synchronizedValue = new DoubleProperty()
@@ -130,7 +131,7 @@ object ColorSelector extends JFXApp {
 
   // METHODS - END
 
-  val rectangleRegion = new Region {
+  val rectangleRegion: Region = new Region {
     effect = new Reflection {
       fraction = 0.45
     }
@@ -143,7 +144,7 @@ object ColorSelector extends JFXApp {
 
   currentColor.onChange(rectangleRegion.setStyle("-fx-background-color: " + RgbFormatter.format(currentColor(), !this.chbDisableAlpha.selected.value)))
 
-  val controlRed = new SliderControl("R") {
+  val controlRed: SliderControl = new SliderControl("R") {
     value = 255
   }
   controlRed.value.onChange({
@@ -153,7 +154,7 @@ object ColorSelector extends JFXApp {
   controlRed.selectedControl.onChange(controlSelected(controlRed))
   controlRed.changeColor(Color.rgb(controlRed.value.value.toInt, 0, 0), getForegroundColor(controlRed.value.value))
 
-  val controlGreen = new SliderControl("G") {
+  val controlGreen: SliderControl = new SliderControl("G") {
     value = 255
   }
   controlGreen.value.onChange({
@@ -163,7 +164,7 @@ object ColorSelector extends JFXApp {
   controlGreen.selectedControl.onChange(controlSelected(controlGreen))
   controlGreen.changeColor(Color.rgb(0, controlGreen.value.value.toInt, 0), getForegroundColor(controlGreen.value.value))
 
-  val controlBlue = new SliderControl("B") {
+  val controlBlue: SliderControl = new SliderControl("B") {
     value = 255
   }
   controlBlue.value.onChange({
@@ -173,7 +174,7 @@ object ColorSelector extends JFXApp {
   controlBlue.selectedControl.onChange(controlSelected(controlBlue))
   controlBlue.changeColor(Color.rgb(0, 0, controlBlue.value.value.toInt), Color.White)
 
-  val controlAlpha = new SliderControl("A") {
+  val controlAlpha: SliderControl = new SliderControl("A") {
     value = 255
   }
   controlAlpha.value.onChange(changeColor())
@@ -187,13 +188,13 @@ object ColorSelector extends JFXApp {
     formatColor()
   })
 
-  val cmbWebColor = new ComboBox[WebColor](WebColor.colors) {
+  val cmbWebColor: ComboBox[WebColor] = new ComboBox[WebColor](WebColor.colors) {
     promptText = "Web Color"
     converter = StringConverter.toStringConverter((wc: WebColor) => wc.name)
     onAction = (event: ActionEvent) => webColorSelected()
   }
 
-  val txfColorValue = new TextField {
+  val txfColorValue: TextField = new TextField {
     promptText = "Color Value"
     editable = false
     alignment = Pos.CenterLeft
@@ -201,43 +202,43 @@ object ColorSelector extends JFXApp {
     style = "-fx-font-family: Consolas;"
   }
 
-  val cmbColorFormat = new ComboBox[Formatter](Formatter.formatters) {
+  val cmbColorFormat: ComboBox[Formatter] = new ComboBox[Formatter](Formatter.formatters) {
     promptText = "Color Format"
     converter = StringConverter.toStringConverter((f: Formatter) => f.description)
     value = RgbFormatter
     onAction = (event: ActionEvent) => formatColor()
   }
 
-  val chbDisableAlpha = new CheckBox {
+  val chbDisableAlpha: CheckBox = new CheckBox {
     selected <==> controlAlpha.disable
   }
 
-  val rectangleRowsConstraint = new RowConstraints {
+  val rectangleRowsConstraint: RowConstraints = new RowConstraints {
     vgrow = Priority.Always
     prefHeight = Region.USE_COMPUTED_SIZE
   }
-  val otherRowsConstraint = new RowConstraints {
+  val otherRowsConstraint: RowConstraints = new RowConstraints {
     vgrow = Priority.Never
     valignment = VPos.Top
   }
-  val column0Constraint = new ColumnConstraints {
+  val column0Constraint: ColumnConstraints = new ColumnConstraints {
     fillWidth = true
     halignment = HPos.Center
     hgrow = Priority.Always
     minWidth = 300
   }
-  val column1Constraint = new ColumnConstraints {
+  val column1Constraint: ColumnConstraints = new ColumnConstraints {
     halignment = HPos.Right
     hgrow = Priority.Never
     minWidth = 80
     maxWidth = 100
   }
-  val column2Constraint = new ColumnConstraints {
+  val column2Constraint: ColumnConstraints = new ColumnConstraints {
     halignment = HPos.Left
     hgrow = Priority.Sometimes
     minWidth = 200
   }
-  val pnlMain = new GridPane {
+  val pnlMain: GridPane = new GridPane {
     hgap = 5.0
     vgap = 5.0
     rowConstraints = List(rectangleRowsConstraint, otherRowsConstraint, otherRowsConstraint,
@@ -288,14 +289,14 @@ object ColorSelector extends JFXApp {
     add(chbDisableAlpha, 2, 4)
   }
 
-  val pnlMain0 = new AnchorPane {
+  val pnlMain0: AnchorPane = new AnchorPane {
     children = List(pnlMain)
     prefHeight = 500
     prefWidth = 800
   }
   AnchorPane.setAnchors(pnlMain, 0, 0, 0, 0)
 
-  val mainScene = new Scene {
+  val mainScene: Scene = new Scene {
     content = List(pnlMain0)
   }
   pnlMain0.prefWidth <== mainScene.width

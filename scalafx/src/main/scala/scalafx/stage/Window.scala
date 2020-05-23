@@ -197,7 +197,7 @@ class Window protected(override val delegate: jfxs.Window)
     delegate.sizeToScene()
   }
 
-  override protected def eventHandlerDelegate = delegate.asInstanceOf[EventHandled]
+  override protected def eventHandlerDelegate: EventHandled = delegate.asInstanceOf[EventHandled]
 
   /**
     * The horizontal scale that the `Window` will use when rendering

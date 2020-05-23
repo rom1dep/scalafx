@@ -61,15 +61,15 @@ import scalafx.scene.shape.Rectangle
 
 object ScalaFX_Controls_04 extends JFXApp {
 
-  val priorityLabel = new Label {
+  val priorityLabel: Label = new Label {
     text = "Priority:"
   }
 
-  val theToggleGroup = new ToggleGroup {
+  val theToggleGroup: ToggleGroup = new ToggleGroup {
 
   }
 
-  val minorToggleButton = new ToggleButton {
+  val minorToggleButton: ToggleButton = new ToggleButton {
     text = "Minor"
     toggleGroup = theToggleGroup
     userData = Color.LightGreen
@@ -77,7 +77,7 @@ object ScalaFX_Controls_04 extends JFXApp {
     style = "-fx-base: lightgreen;"
   }
 
-  val majorToggleButton = new ToggleButton {
+  val majorToggleButton: ToggleButton = new ToggleButton {
     text = "Major"
     toggleGroup = theToggleGroup
     userData = Color.LightBlue
@@ -85,7 +85,7 @@ object ScalaFX_Controls_04 extends JFXApp {
     style = "-fx-base: lightblue;"
   }
 
-  val criticalToggleButton = new ToggleButton {
+  val criticalToggleButton: ToggleButton = new ToggleButton {
     text = "Critical"
     toggleGroup = theToggleGroup
     userData = Color.Salmon
@@ -93,7 +93,7 @@ object ScalaFX_Controls_04 extends JFXApp {
     style = "-fx-base: salmon;"
   }
 
-  val hBox = new HBox {
+  val hBox: HBox = new HBox {
     children = List(
       minorToggleButton,
       majorToggleButton,
@@ -101,7 +101,7 @@ object ScalaFX_Controls_04 extends JFXApp {
     )
   }
 
-  val rectangle = new Rectangle {
+  val rectangle: Rectangle = new Rectangle {
     width = 158
     height = 50
     fill = Color.White
@@ -111,7 +111,7 @@ object ScalaFX_Controls_04 extends JFXApp {
     arcWidth = 10
   }
 
-  val vBox = new VBox {
+  val vBox: VBox = new VBox {
     padding = Insets(20, 10, 10, 20)
     children = List(
       priorityLabel,

@@ -40,7 +40,7 @@ object ProgressBarTest extends JFXApp {
 
   val progressBarController = new ProgressIndicatorControls(progressBar)
 
-  val mainPane = new BorderPane {
+  val mainPane: BorderPane = new BorderPane {
     top = progressBar
     center = progressBarController
     vgrow = Priority.Always

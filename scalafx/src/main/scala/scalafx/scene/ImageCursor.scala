@@ -34,6 +34,7 @@ import scalafx.Includes._
 import scalafx.beans.property.{ReadOnlyDoubleProperty, ReadOnlyObjectProperty}
 import scalafx.delegate.SFXDelegate
 import scalafx.scene.image.Image
+import javafx.geometry.Dimension2D
 
 object ImageCursor {
   implicit def sfxImageCursor2jfx(c: ImageCursor): jfxs.ImageCursor = if (c != null) c.delegate else null
@@ -41,13 +42,13 @@ object ImageCursor {
   /**
    * Creates a custom image cursor from one of the specified images.
    */
-  def chooseBestCursor(images: Array[jfxsi.Image], hotspotX: Double, hotspotY: Double) =
+  def chooseBestCursor(images: Array[jfxsi.Image], hotspotX: Double, hotspotY: Double): jfxs.ImageCursor =
     jfxs.ImageCursor.chooseBestCursor(images, hotspotX, hotspotX)
 
   /**
    * Gets the supported cursor size that is closest to the specified preferred size.
    */
-  def getBestSize(preferredWidth: Double, preferredHeight: Double) =
+  def getBestSize(preferredWidth: Double, preferredHeight: Double): Dimension2D =
     jfxs.ImageCursor.getBestSize(preferredWidth, preferredHeight)
 
   /**

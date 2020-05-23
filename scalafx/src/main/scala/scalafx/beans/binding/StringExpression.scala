@@ -73,7 +73,7 @@ class StringExpression(val delegate: jfxbb.StringExpression) {
   // Kind of an odd case that concat is not observable, but this is how it is coded in JavaFX
   def + = concat _
 
-  def concat(v: Any) = {
+  def concat(v: Any): StringExpression = {
     val jfxV = v match {
       case d: SFXDelegate[_] => d.delegate
       case a => a

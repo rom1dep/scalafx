@@ -46,7 +46,7 @@ object Service {
    * @param op [[scala.Function]] that returns a [[scalafx.concurrent.Task]] to be invoked after this was started on
    *           the JavaFX Application Thread.
    */
-  def apply[T](op: => jfxc.Task[T]) = new Service[T](new jfxc.Service[T] {
+  def apply[T](op: => jfxc.Task[T]): Service[T] = new Service[T](new jfxc.Service[T] {
     protected def createTask = op
   }) {}
 }
@@ -61,7 +61,7 @@ abstract class Service[T](override val delegate: jfxc.Service[T])
   with EventHandlerDelegate
   with SFXDelegate[jfxc.Service[T]] {
 
-  def eventHandlerDelegate = delegate.asInstanceOf[EventHandled]
+  def eventHandlerDelegate: EventHandled = delegate.asInstanceOf[EventHandled]
 
   /**
    * The executor to use for running this Service.

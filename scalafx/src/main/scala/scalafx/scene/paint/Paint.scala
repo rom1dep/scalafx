@@ -38,7 +38,7 @@ object Paint {
    * Creates a paint value from a string representation.  Recognizes strings representing Color, RadialGradient or LinearGradient. String specifying
    * LinearGradient must begin with linear-gradient keyword and string specifying RadialGradient must begin with radial-gradient.
    */
-  def valueOf(value: String) = jfxsp.Paint.valueOf(value)
+  def valueOf(value: String): jfxsp.Paint = jfxsp.Paint.valueOf(value)
 
 }
 

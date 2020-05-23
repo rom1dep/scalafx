@@ -61,23 +61,23 @@ import scalafx.scene.text.{Font, TextAlignment}
  */
 
 object ScalaFX_Controls_01 extends JFXApp {
-  val labelsImageView = new ImageView {
+  val labelsImageView: ImageView = new ImageView {
     image = new Image(this, "images/labels.jpg")
   }
-  val searchLabel = new Label {
+  val searchLabel: Label = new Label {
     text = "Search"
     graphic = labelsImageView
     font = Font.font("Arial", 30)
     textFill = Color.web("#0076a3")
     textAlignment = TextAlignment.Justify
   }
-  val valuesLabel = new Label {
+  val valuesLabel: Label = new Label {
     text = "Values"
     font = Font.font("Cambria", 32)
     rotate = 270
     translateY = 50
   }
-  val wrappedLabel = new Label {
+  val wrappedLabel: Label = new Label {
     text = "A label that needs to be wrapped"
     wrapText = true
     translateY = 50
@@ -93,7 +93,7 @@ object ScalaFX_Controls_01 extends JFXApp {
         scaleY = 1
     }
   }
-  val hBox = new HBox {
+  val hBox: HBox = new HBox {
     spacing = 10
     children = List(
       searchLabel,

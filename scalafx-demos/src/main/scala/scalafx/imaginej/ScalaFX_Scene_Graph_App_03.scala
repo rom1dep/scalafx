@@ -59,7 +59,7 @@ import scalafx.scene.shape.Rectangle
  */
 
 object ScalaFX_Scene_Graph_App_03 extends JFXApp {
-  val rectangle = new Rectangle {
+  val rectangle: Rectangle = new Rectangle {
     x = 0
     y = 0
     width = 250

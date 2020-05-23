@@ -45,7 +45,7 @@ object CanvasDoodleTest extends JFXApp {
   val canvas = new Canvas(200, 200)
 
   // Draw background with gradient
-  val rect = new Rectangle {
+  val rect: Rectangle = new Rectangle {
     height = 400
     width = 400
     fill = new LinearGradient(0, 0, 1, 1, true, CycleMethod.Reflect, List(Stop(0, Color.Red), Stop(1, Color.Yellow)))

@@ -47,13 +47,13 @@ class TextFieldProperty(override val delegate: jfxbp.ReadOnlyObjectProperty[jfxs
   with AlignmentPropertyDelegate {
 
   @deprecated("Use of TextFieldProperty can result in infinite recursion and StackOverflow errors. See discussion of [Issue #69](https://github.com/scalafx/scalafx/issues/69)", "8.0.60-R10")
-  def onAction = jfxbb.Bindings.select[jfxe.ActionEvent](delegate, "onAction")
+  def onAction: jfxbb.ObjectBinding[jfxe.ActionEvent] = jfxbb.Bindings.select[jfxe.ActionEvent](delegate, "onAction")
   @deprecated("Use of TextFieldProperty can result in infinite recursion and StackOverflow errors. See discussion of [Issue #69](https://github.com/scalafx/scalafx/issues/69)", "8.0.60-R10")
-  def prefColumnCount = jfxbb.Bindings.selectInteger(delegate, "prefColumnCount")
+  def prefColumnCount: jfxbb.IntegerBinding = jfxbb.Bindings.selectInteger(delegate, "prefColumnCount")
 
   // todo - these need to be moved to TextInputControl:
   @deprecated("Use of TextFieldProperty can result in infinite recursion and StackOverflow errors. See discussion of [Issue #69](https://github.com/scalafx/scalafx/issues/69)", "8.0.60-R10")
-  def promptText = jfxbb.Bindings.selectString(delegate, "promptText")
+  def promptText: jfxbb.StringBinding = jfxbb.Bindings.selectString(delegate, "promptText")
   @deprecated("Use of TextFieldProperty can result in infinite recursion and StackOverflow errors. See discussion of [Issue #69](https://github.com/scalafx/scalafx/issues/69)", "8.0.60-R10")
-  def text = jfxbb.Bindings.selectString(delegate, "text")
+  def text: jfxbb.StringBinding = jfxbb.Bindings.selectString(delegate, "text")
 }

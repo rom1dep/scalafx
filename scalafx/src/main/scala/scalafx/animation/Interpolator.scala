@@ -83,9 +83,9 @@ object Interpolator {
    * @param y2 y coordinate of the second control point
    * @return A spline interpolator
    */
-  def Spline(x1: Double, y1: Double, x2: Double, y2: Double) = jfxa.Interpolator.SPLINE(x1, y1, x2, y2)
+  def Spline(x1: Double, y1: Double, x2: Double, y2: Double): jfxa.Interpolator = jfxa.Interpolator.SPLINE(x1, y1, x2, y2)
 	@deprecated ("Use Spline; SPLINE will be removed in a future release", "8.0.60-R10")
-  def SPLINE(x1: Double, y1: Double, x2: Double, y2: Double) = Spline(x1, y1, x2, y2)
+  def SPLINE(x1: Double, y1: Double, x2: Double, y2: Double): jfxa.Interpolator = Spline(x1, y1, x2, y2)
 
   /**
    * Creates a tangent $INT, for which in-tangent and out-tangent are identical.
@@ -94,9 +94,9 @@ object Interpolator {
    * @param v The value of the tangent
    * @return the new Tangent interpolator
    */
-  def Tangent(t: Duration, v: Double) = jfxa.Interpolator.TANGENT(t, v)
+  def Tangent(t: Duration, v: Double): jfxa.Interpolator = jfxa.Interpolator.TANGENT(t, v)
 	@deprecated ("Use Tangent; TANGENT will be removed in a future release", "8.0.60-R10")
-  def TANGENT(t: Duration, v: Double) = Tangent(t, v)
+  def TANGENT(t: Duration, v: Double): jfxa.Interpolator = Tangent(t, v)
 
   /**
    * Create a tangent $INT.
@@ -107,8 +107,8 @@ object Interpolator {
    * @param v2 The value of the out-tangent
    * @return the new tangent interpolator
    */
-  def Tangent(t1: Duration, v1: Double, t2: Duration, v2: Double) = jfxa.Interpolator.TANGENT(t1, v1, t2, v2)
+  def Tangent(t1: Duration, v1: Double, t2: Duration, v2: Double): jfxa.Interpolator = jfxa.Interpolator.TANGENT(t1, v1, t2, v2)
 	@deprecated ("Use Tangent; TANGENT will be removed in a future release", "8.0.60-R10")
-  def TANGENT(t1: Duration, v1: Double, t2: Duration, v2: Double) = Tangent(t1, v1, t2, v2)
+  def TANGENT(t1: Duration, v1: Double, t2: Duration, v2: Double): jfxa.Interpolator = Tangent(t1, v1, t2, v2)
 
 }

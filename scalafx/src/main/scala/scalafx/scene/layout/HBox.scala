@@ -37,6 +37,7 @@ import scalafx.scene.Node
 import scalafx.scene.Node._
 
 import scala.language.implicitConversions
+import javafx.geometry
 
 object HBox {
   implicit def sfxHBox2jfx(v: HBox): jfxsl.HBox = if (v != null) v.delegate else null
@@ -51,7 +52,7 @@ object HBox {
   /**
    * Returns the child's hgrow constraint if set.
    */
-  def getHgrow(child: Node) = jfxsl.HBox.getHgrow(child)
+  def getHgrow(child: Node): jfxsl.Priority = jfxsl.HBox.getHgrow(child)
 
   /**
    * Sets the horizontal grow priority for the child when contained by an hbox.
@@ -63,7 +64,7 @@ object HBox {
   /**
    * Returns the child's margin constraint if set.
    */
-  def getMargin(child: Node) = jfxsl.HBox.getMargin(child)
+  def getMargin(child: Node): geometry.Insets = jfxsl.HBox.getMargin(child)
 
   /**
    * Sets the margin for the child when contained by an hbox.

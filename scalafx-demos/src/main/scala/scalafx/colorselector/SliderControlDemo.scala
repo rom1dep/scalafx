@@ -42,7 +42,7 @@ object SliderControlDemo extends JFXApp {
 
   val sliderControl = new SliderControl("X")
 
-  val txfInputValue = new TextField {
+  val txfInputValue: TextField = new TextField {
     alignmentInParent = Pos.BaselineLeft
     promptText = "Enter the value"
     hgrow = Priority.Never
@@ -51,22 +51,22 @@ object SliderControlDemo extends JFXApp {
     }
   }
 
-  val lblOutputValue = new Label {
+  val lblOutputValue: Label = new Label {
     alignmentInParent = Pos.BaselineLeft
     text <== sliderControl.realValue.asString("%03.0f")
   }
 
-  val chbSelected = new CheckBox {
+  val chbSelected: CheckBox = new CheckBox {
     alignmentInParent = Pos.BaselineLeft
     selected <==> sliderControl.selectedControl
   }
 
-  val chbEnabled = new CheckBox {
+  val chbEnabled: CheckBox = new CheckBox {
     alignmentInParent = Pos.BaselineLeft
     selected <==> sliderControl.disable
   }
 
-  val pnlControls = new GridPane {
+  val pnlControls: GridPane = new GridPane {
     add(new Label {
       text = "Input Value"
     }, 0, 0)
@@ -91,24 +91,24 @@ object SliderControlDemo extends JFXApp {
   GridPane.setHgrow(lblOutputValue, Priority.Never)
   GridPane.setValignment(lblOutputValue, VPos.Baseline)
   GridPane.setVgrow(lblOutputValue, Priority.Never)
-  val ccOdd = new ColumnConstraints {
+  val ccOdd: ColumnConstraints = new ColumnConstraints {
     halignment = HPos.Right
     hgrow = Priority.Never
   }
-  val ccEven = new ColumnConstraints {
+  val ccEven: ColumnConstraints = new ColumnConstraints {
     halignment = HPos.Left
     hgrow = Priority.Sometimes
   }
   pnlControls.columnConstraints = List(ccOdd, ccEven, ccOdd, ccEven)
 
-  val box = new VBox(5.0) {
+  val box: VBox = new VBox(5.0) {
     children = List(sliderControl,
       pnlControls)
   }
   VBox.setVgrow(sliderControl, Priority.Never)
   VBox.setVgrow(pnlControls, Priority.Always)
 
-  val mainScene = new Scene {
+  val mainScene: Scene = new Scene {
     fill = Color.LightGray
     content = new AnchorPane {
       children = List(box)

@@ -57,7 +57,7 @@ object ScrollToEvent {
   /**
    * This event occurs if the user requests scrolling a `TableColumnBase` (ie `TableColumn` or `TreeTableColumn`) into view.
    */
-  def scrollToColumn[T <: jfxsc.TableColumnBase[_, _]]() = jfxsc.ScrollToEvent.scrollToColumn()
+  def scrollToColumn[T <: jfxsc.TableColumnBase[_, _]](): jfxe.EventType[jfxsc.ScrollToEvent[Nothing]] = jfxsc.ScrollToEvent.scrollToColumn()
 
   /**
    * This event occurs if the user requests scrolling a given index into view.

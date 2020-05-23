@@ -39,29 +39,29 @@ import scalafx.scene.paint.Color
 
 object CheckBoxTest extends JFXApp {
 
-  val check = new CheckBox {
+  val check: CheckBox = new CheckBox {
     text = "CheckBox"
   }
   check.onAction = (event: ActionEvent) => {
     lblCheckState.text = if (check.indeterminate.get) "Indeterminate" else check.selected.get().toString
   }
 
-  val lblCheckState = new Label {
+  val lblCheckState: Label = new Label {
     text = check.selected.get().toString
   }
 
-  val btnAllowIndeterminate = new scalafx.scene.control.Button {
+  val btnAllowIndeterminate: Button = new scalafx.scene.control.Button {
     text = "Allow Indeterminate"
   }
   btnAllowIndeterminate.onAction = (event: ActionEvent) => {
     check.allowIndeterminate = !check.allowIndeterminate.get()
   }
 
-  val lblAllowIndeterminate = new Label {
+  val lblAllowIndeterminate: Label = new Label {
     text <== when(check.allowIndeterminate) choose "Can be Indeterminate" otherwise "Can not be Indeterminate"
   }
 
-  val btnFire = new Button {
+  val btnFire: Button = new Button {
     text = "Fire!"
   }
   btnFire.onAction = (event: ActionEvent) => check.fire()
@@ -69,7 +69,7 @@ object CheckBoxTest extends JFXApp {
   val txfText = new TextField
   txfText.delegate.textProperty.bindBidirectional(check.text)
 
-  val grid = new GridPane {
+  val grid: GridPane = new GridPane {
     padding = Insets(10)
     hgap = 5
     vgap = 5
