@@ -176,7 +176,7 @@ object JFXApp {
     */
   private[application] object EmptyParameters extends Parameters {
     def raw: Seq[String] = Nil
-    def named: immutable.Map[String,String] = Map.empty[String, String]
+    def named: Map[String,String] = Map.empty[String, String]
     def unnamed: Seq[String] = Nil
 
     lazy val delegate: Application.Parameters = new jfxa.Application.Parameters {
